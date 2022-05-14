@@ -5,13 +5,6 @@ import store from '@/store'
 import TheHome from '../views/website/TheHome.vue'
 
 import TheLogin from '../views/signIn/TheLogin.vue'
-import TheRegistration from '../views/signIn/TheRegistration.vue'
-
-import TheUser from '../views/user/TheUser.vue'
-import TheUserDashboard from '../views/user/TheDashboard.vue'
-import TheUserSubscriptions from '../views/user/TheSubscriptions.vue'
-import TheUserSubscriptionsAdd from '../views/user/Sub/TheSubscriptionsAdd.vue'
-import TheUserSubscriptionsView from '../views/user/Sub/TheSubscriptionsView.vue'
 
 import TheAdmin from '../views/admin/TheAdmin.vue'
 import TheAdminSetting from '../views/admin/TheSetting.vue'
@@ -25,18 +18,9 @@ import NotFoundRedirect from '../components/redirects/NotFoundRedirect.vue'
 // import VueI18nManager from 'vue-i18n-manager'
 
 Vue.use(VueRouter)
-const isAuthenticatedClient = (to, from, next) => {
-  // if (store.state.auth.isAuthenticated) {
-  // console.log('store.state.auth', store.state.auth)
-  if (store.state.auth.isAuthenticated && store.state.auth.isRole === 'CLIENT') {
-    next()
-    return
-  }
-  next('/login')
-}
-const isAuthenticatedAdmin = (to, from, next) => {
-  // if (store.state.auth.isAuthenticated) {
-  if (store.state.auth.isAuthenticated && store.state.auth.isRole === 'SUPERVISOR') {
+
+const isAuthenticated = (to, from, next) => {
+  if (store.state.auth.isAuthenticated) {
     next()
     return
   }
@@ -49,11 +33,7 @@ const isNotAuthenticated = (to, from, next) => {
     next()
     return
   }
-  if (store.state.auth.isRole === 'SUPERVISOR') {
-    next('/admin/admin-dashboard')
-  } else if (store.state.auth.isRole === 'CLIENT') {
-    next('/user/user-dashboard')
-  }
+  next('/admin')
 }
 
 const routes = [
@@ -66,64 +46,31 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: TheAdmin,
-    beforeEnter: isAuthenticatedAdmin,
+    beforeEnter: isAuthenticated,
     children: [
       {
         path: '/',
         name: 'admin-dashboard',
         component: TheAdminDashboard,
-        beforeEnter: isAuthenticatedAdmin
+        beforeEnter: isAuthenticated
       },
       {
         path: 'setting',
         name: 'admin-setting',
         component: TheAdminSetting,
-        beforeEnter: isAuthenticatedAdmin
+        beforeEnter: isAuthenticated
       },
       {
         path: 'category',
         name: 'admin-category',
         component: TheAdminCategory,
-        beforeEnter: isAuthenticatedAdmin
+        beforeEnter: isAuthenticated
       },
       {
         path: 'products',
         name: 'admin-products',
         component: TheAdminProducts,
-        beforeEnter: isAuthenticatedAdmin
-      }
-    ]
-  },
-  {
-    path: '/user',
-    name: 'user',
-    component: TheUser,
-    beforeEnter: isAuthenticatedClient,
-    children: [
-      {
-        path: '/',
-        name: 'user-dashboard',
-        component: TheUserDashboard,
-        beforeEnter: isAuthenticatedClient
-      },
-      {
-        path: 'subscriptions',
-        name: 'user-subscriptions',
-        component: TheUserSubscriptions,
-        beforeEnter: isAuthenticatedClient
-      },
-      {
-        path: 'subscriptions/add',
-        name: 'user-subscriptions-add',
-        component: TheUserSubscriptionsAdd,
-        beforeEnter: isAuthenticatedClient
-      },
-      {
-        path: 'subscriptions/view/:id',
-        name: 'user-subscriptions-view',
-        component: TheUserSubscriptionsView,
-        props: true,
-        beforeEnter: isAuthenticatedClient
+        beforeEnter: isAuthenticated
       }
     ]
   },
@@ -131,12 +78,6 @@ const routes = [
     path: '/login',
     name: 'login',
     component: TheLogin,
-    beforeEnter: isNotAuthenticated
-  },
-  {
-    path: '/registration',
-    name: 'registration',
-    component: TheRegistration,
     beforeEnter: isNotAuthenticated
   },
   {

@@ -9,9 +9,6 @@
                 {{ item.heading }}
               </v-subheader>
             </v-col>
-            <v-col cols="6" class="text-center">
-              <a href="#" class="body-2 black--text">EDIT</a>
-            </v-col>
           </v-row>
           <v-list-group
             v-else-if="item.children"
@@ -55,16 +52,10 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
         <router-link :to="`/`" style="color: #fff">
-          <span class="hidden-sm-and-down">Альфа корзина</span>
+          <span class="hidden-sm-and-down">Koakuma</span>
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn class="headerLink" icon to="/admin">
-        <v-icon>mdi-apps</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
-      </v-btn>
       <v-btn icon>
         <v-avatar size="36px" item>
           <v-img src="/img/no-avatar.png" alt="Vuetify"></v-img>
@@ -94,32 +85,8 @@ export default {
     items: [
       {
         icon: 'mdi-store',
-        text: 'Категории',
-        link: '/admin/category'
-      },
-      {
-        icon: 'mdi-storefront',
-        text: 'Товары',
-        link: '/admin/products'
-      },
-      {
-        icon: 'mdi-chevron-up',
-        'icon-alt': 'mdi-chevron-down',
-        text: 'Пользовалетели',
-        model: false,
-        children: [
-          {
-            text: 'Клиенты'
-          },
-          {
-            text: 'Сотрудники'
-          }
-        ]
-      },
-      {
-        icon: 'mdi-settings-outline',
-        text: 'Настройки',
-        link: '/admin/setting'
+        text: 'Social',
+        link: '/admin'
       }
     ]
   }),

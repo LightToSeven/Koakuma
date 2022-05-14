@@ -1,4 +1,7 @@
-import { $http } from '@/utils/https'// eslint-disable-next-line
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut , updatePassword, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth'
+import firebase from 'firebase/app'
+import { firebaseAuth } from '../../firebase/config'
+
 import {
   REFRESH_TOKEN,
   SET_TOKEN,
@@ -7,76 +10,33 @@ import {
   SING_IN_REQUEST_STATUS
 } from '../mutation-types'
 import {
-  GET_TOKEN,
-  REGISTRATION,
-  INVITE_CODE_CLIENT
+  GET_TOKEN
 } from '../action-types'
 
 const state = {
   isAuthenticated: false,
-  userData: JSON.parse(localStorage.getItem('user_data')) || [],
-  isRole: localStorage.getItem('user_role') || '', // SUPERVISOR
-  showRestorePassword: false,
-  showSetNewPassword: false,
-  loadingRegistration: false,
-  popupLdapWarning: false,
-  singInLoading: false,
-  checkEmailLoading: false
+  user: null
 }
 
 const getters = {
   isAuthenticated: state => state.isAuthenticated,
-  userData: state => state.userData,
-  isRole: state => state.isRole,
-  checkEmailLoading: state => state.checkEmailLoading,
-  showRestorePassword: state => state.showRestorePassword,
-  showSetNewPassword: state => state.showSetNewPassword,
-  singIn: state => state.singIn,
-  loadingRegistration: state => state.loadingRegistration,
-  singInLoading: state => state.singInLoading,
-  popupLdapWarning: state => state.popupLdapWarning
+  user: state => state.user
 }
 
 const actions = {
-  [GET_TOKEN]: async ({ commit }, payload) => {
+  [GET_TOKEN]: async ({ commit }, { email, password }) => {
     try {
       commit(SING_IN_REQUEST_STATUS, true)
 
-      const result = await $http.post('user/login-user', payload)
-      console.log(result)
-      commit(SET_TOKEN, { token: result.data.tokenData.token, role: result.data.userData.role, userData: result.data.userData })
-      return result
+      const user = await signInWithEmailAndPassword(firebaseAuth, email, password)
+
+      console.log(user)
+      commit(SET_TOKEN, { token: user.user.uid, userData: user.user })
+      return user
     } catch (e) {
-      console.log('error: ' + e)
       throw e
     } finally {
       commit(SING_IN_REQUEST_STATUS, false)
-    }
-  },
-  [INVITE_CODE_CLIENT]: async ({ commit }, payload) => {
-    try {
-      commit(SET_LOADING_REGISTRATION, true)
-      return await $http.post('user/send-invitation-for-client', { email: payload })
-    } catch (e) {
-      console.log(e)
-      throw e
-    } finally {
-      commit(SET_LOADING_REGISTRATION, false)
-    }
-  },
-  [REGISTRATION]: async ({ commit }, payload) => {
-    try {
-      commit(SET_LOADING_REGISTRATION, true)
-
-      const result = await $http.post('user/registrate-client', payload)
-      commit(SET_TOKEN, { token: result.data.tokenData.token, role: result.data.userData.role })
-
-      return result
-    } catch (e) {
-      console.log(e)
-      throw e
-    } finally {
-      commit(SET_LOADING_REGISTRATION, false)
     }
   }
 }
@@ -86,10 +46,8 @@ const mutations = {
     console.log('val', value)
     localStorage.setItem('user_token', value.token)
     state.isAuthenticated = true
-    localStorage.setItem('user_role', value.role)
-    state.isRole = value.role
-    localStorage.setItem('user_data', JSON.stringify(value.userData))
-    state.userData = value.userData
+    localStorage.setItem('user', JSON.stringify(value.userData))
+    state.user = value.userData
   },
   [REFRESH_TOKEN] (state, token) {
     localStorage.setItem('user_token', token)

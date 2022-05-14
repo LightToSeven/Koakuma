@@ -11,7 +11,6 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 
 import Carousel3d from 'vue-carousel-3d'
-
 Vue.use(Carousel3d)
 
 Vue.config.productionTip = false
