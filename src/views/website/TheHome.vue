@@ -117,7 +117,7 @@
         </div>
       </div>
     </div>
-    <div class="section-about">
+    <div class="section-about" ref="asdfasdfa">
       <div class="container">
         <div class="section-about__title">About</div>
         <div class="section-about__bg">
@@ -134,7 +134,13 @@
           <img src="/img/webSite/about/video.png" alt="">
         </div>
         <div class="section-about__list">
-          <VueSlickCarousel v-bind="sliderAbout">
+          <div class="btn-prev" @click="swiperPrev">
+            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1018" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1022" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1023Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1024Out" in="FeOffset1023Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
+          </div>
+          <div class="btn-next" @click="swiperNext">
+            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1044" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1048" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1049Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1050Out" in="FeOffset1049Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
+          </div>
+          <VueSlickCarousel ref="aboutList" v-bind="sliderAbout">
             <div v-for="(item, index) in about" :key="index">
               <div class="section-about__list-item" :style="`background-image: url(${item.image})`">
                 <div class="name">{{item.name}}</div>
@@ -155,7 +161,13 @@
           Discover and collect over 720+ unique equipments, runes, legendary hero skins and weapons to help battle deadly monsters and get the upper hand against other players. Breed and train your Koakuma imps to upgrade their abilities and value.
         </div>
         <div class="section-nfts__slider">
-          <VueSlickCarousel v-bind="settings">
+          <div class="btn-prev" @click="swiperPrevNft">
+            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1018" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1022" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1023Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1024Out" in="FeOffset1023Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
+          </div>
+          <div class="btn-next" @click="swiperNextNft">
+            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1044" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1048" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1049Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1050Out" in="FeOffset1049Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
+          </div>
+          <VueSlickCarousel ref="nftsList" v-bind="settings">
             <div class="section-nfts__slider-item" :class="`lvl-${item.lvl}`" v-for="(item, index) in sliderItems" :key="index">
               <div class="subjects" :class="`lvl-${item.lvl}`">
                 <div class="subjects__image">
@@ -313,19 +325,53 @@ export default {
     return {
       settings: {
         centerMode: true,
-        centerPadding: 0,
         focusOnSelect: true,
         infinite: true,
         arrows: false,
         slidesToShow: 5,
-        speed: 500
+        speed: 500,
+        responsive: [
+          {
+            breakpoint: 1440,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3
+            }
+          }
+        ]
       },
       sliderAbout: {
-        centerPadding: 0,
         infinite: true,
         arrows: false,
         slidesToShow: 5,
-        speed: 500
+        slidesToScroll: 1,
+        speed: 500,
+        responsive: [
+          {
+            breakpoint: 1440,
+            settings: {
+              slidesToShow: 5
+            }
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 4
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 450,
+            settings: {
+              slidesToShow: 2
+            }
+          }
+        ]
       },
       sliderItems: [
         {
@@ -673,6 +719,20 @@ export default {
           image: '/img/webSite/about/about-5.png'
         }
       ]
+    }
+  },
+  methods: {
+    swiperNext () {
+      this.$refs.aboutList.next()
+    },
+    swiperPrev () {
+      this.$refs.aboutList.prev()
+    },
+    swiperNextNft () {
+      this.$refs.nftsList.next()
+    },
+    swiperPrevNft () {
+      this.$refs.nftsList.prev()
     }
   }
 }
