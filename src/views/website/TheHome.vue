@@ -160,29 +160,48 @@
         <div class="section-nfts__box">
           Discover and collect over 720+ unique equipments, runes, legendary hero skins and weapons to help battle deadly monsters and get the upper hand against other players. Breed and train your Koakuma imps to upgrade their abilities and value.
         </div>
-        <div class="section-nfts__slider">
-          <div class="btn-prev" @click="swiperPrevNft">
-            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1018" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1022" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1023Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1024Out" in="FeOffset1023Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
-          </div>
-          <div class="btn-next" @click="swiperNextNft">
-            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1044" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1048" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1049Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1050Out" in="FeOffset1049Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
-          </div>
-          <VueSlickCarousel ref="nftsList" v-bind="settings">
-            <div class="section-nfts__slider-item" :class="`lvl-${item.lvl}`" v-for="(item, index) in sliderItems" :key="index">
-              <div class="subjects" :class="`lvl-${item.lvl}`">
-                <div class="subjects__image">
-                  <img :src="item.image" alt="">
-                </div>
-                <div class="subjects__name">
-                  {{item.name}}
-                </div>
-                <div class="subjects__desc">
-                  {{item.desc}}
+        <div class="section-nfts__testSlider">
+          <carousel-3d :perspective="0" :space="400" :display="5" :height="403">
+            <slide  v-for="(item, index) in sliderItems" :index="index">
+              <div class="" :class="`lvl-${item.lvl}`">
+                <div class="subjects" :class="`lvl-${item.lvl}`">
+                  <div class="subjects__image">
+                    <img :src="item.image" alt="">
+                  </div>
+                  <div class="subjects__name">
+                    {{item.name}}
+                  </div>
+                  <div class="subjects__desc">
+                    {{item.desc}}
+                  </div>
                 </div>
               </div>
-            </div>
-          </VueSlickCarousel>
+            </slide>
+          </carousel-3d>
         </div>
+<!--        <div class="section-nfts__slider">-->
+<!--          <div class="btn-prev" @click="swiperPrevNft">-->
+<!--            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1018" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1022" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1023Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1024Out" in="FeOffset1023Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>-->
+<!--          </div>-->
+<!--          <div class="btn-next" @click="swiperNextNft">-->
+<!--            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1044" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1048" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1049Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1050Out" in="FeOffset1049Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>-->
+<!--          </div>-->
+<!--          <VueSlickCarousel ref="nftsList" v-bind="settings">-->
+<!--            <div class="section-nfts__slider-item" :class="`lvl-${item.lvl}`" v-for="(item, index) in sliderItems" :key="index">-->
+<!--              <div class="subjects" :class="`lvl-${item.lvl}`">-->
+<!--                <div class="subjects__image">-->
+<!--                  <img :src="item.image" alt="">-->
+<!--                </div>-->
+<!--                <div class="subjects__name">-->
+<!--                  {{item.name}}-->
+<!--                </div>-->
+<!--                <div class="subjects__desc">-->
+<!--                  {{item.desc}}-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </VueSlickCarousel>-->
+<!--        </div>-->
       </div>
     </div>
     <div class="section-team">
@@ -316,10 +335,14 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
+import { Carousel3d, Slide } from 'vue-carousel-3d'
+
 export default {
   name: 'TheHome',
   components: {
-    VueSlickCarousel
+    VueSlickCarousel,
+    Carousel3d,
+    Slide
   },
   data () {
     return {
@@ -721,6 +744,9 @@ export default {
       ]
     }
   },
+  mounted () {
+    this.swiperNext()
+  },
   methods: {
     swiperNext () {
       this.$refs.aboutList.next()
@@ -737,5 +763,11 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss">
+.carousel-3d-container {
+.carousel-3d-slide {
+border-radius: 12px;
+.title { font-size: 22px; }
+}
+}
 </style>
