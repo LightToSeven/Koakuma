@@ -359,6 +359,81 @@
     width: max-content;
   }
   &__testSlider{
+    .carousel-3d-container {
+      overflow: visible;
+    }
+    .carousel-3d-slide {
+      overflow: visible;
+
+      &.left-1,
+      &.right-1 {
+        .carousel-3d-slide--inner {
+          transform: scale(1.26);
+          opacity: 0.7;
+        }
+      }
+      
+      &.left-2,
+      &.right-2 {
+        .carousel-3d-slide--inner {
+          transform: scale(1.16);
+          opacity: 0.4;
+        }
+      }
+
+      &.current {
+        .carousel-3d-slide--inner {
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+
+      &--inner {
+        position: relative;
+        transition: all 200ms ease-out;
+        
+        &:after {
+          content: '';
+          position: absolute;
+          top: -100px;
+          left: 50%;
+          width: 160%;
+          height: 135%;
+          opacity: 0;
+          transform: translateX(calc(-50% + 9px));
+          z-index: 1;
+        }
+
+        &.lvl-1{
+          &:after{
+            background: url(/img/webSite/about/flame-lvl1.png) center no-repeat;
+            background-size: 100% 100%;
+          }
+        }
+        &.lvl-2{
+          &:after{
+            background: url(/img/webSite/about/flame-lvl2.png) center no-repeat;
+            background-size: 100% 100%;
+          }
+        }
+        &.lvl-3{
+          &:after{
+            background: url(/img/webSite/about/flame-lvl3.png) center no-repeat;
+            background-size: 100% 100%;
+          }
+        }
+        &.lvl-4{
+          &:after{
+            top: -105px;
+            background: url(/img/webSite/about/flame-lvl4.png) center no-repeat;
+            background-size: 118% 105%;
+            transform: translateX(calc(-50% - 19px));
+          }
+        }
+      }
+
+    }
     .subjects{
       z-index: 2;
       background: #FFFFFF;
@@ -399,6 +474,7 @@
       }
       &.lvl-1{
         border-color: #114EA1;
+        
         .subjects__image{
           background: #104DA0;
           border-color: #114EA1;
@@ -409,6 +485,7 @@
       }
       &.lvl-2{
         border-color: #13AC59;
+
         .subjects__image{
           background: #1A5B23;
           border-color: #13AC59;
@@ -419,6 +496,7 @@
       }
       &.lvl-3{
         border-color: #EE7015;
+
         .subjects__image{
           background: #EE7015;
           border-color: #EE7015;

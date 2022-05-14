@@ -163,7 +163,7 @@
         <div class="section-nfts__testSlider">
           <carousel-3d :perspective="0" :space="400" :display="5" :height="403">
             <slide  v-for="(item, index) in sliderItems" :index="index">
-              <div class="" :class="`lvl-${item.lvl}`">
+              <div class="carousel-3d-slide--inner" :class="`lvl-${item.lvl}`">
                 <div class="subjects" :class="`lvl-${item.lvl}`">
                   <div class="subjects__image">
                     <img :src="item.image" alt="">

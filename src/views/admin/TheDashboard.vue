@@ -6,22 +6,44 @@
     <v-row
       justify="center"
     >
-      <v-col cols="12" sm="12" md="12">
-        <h2>Social Setting</h2>
-
+      <v-col cols="12" sm="5" md="5">
         <v-form>
+          <h2>Social Setting</h2>
           <v-text-field
-            label="Login"
+            label="discord"
             v-model="discord"
             prepend-icon="mdi-account"
             type="text"
           ></v-text-field>
           <v-text-field
-            id="password"
-            label="Password"
-            v-model="password"
-            prepend-icon="mdi-lock"
-            type="password"
+            label="telegram"
+            v-model="telegram"
+            prepend-icon="mdi-account"
+            type="text"
+          ></v-text-field>
+          <v-text-field
+            label="twitter"
+            v-model="twitter"
+            prepend-icon="mdi-account"
+            type="text"
+          ></v-text-field>
+          <v-text-field
+            label="facebook"
+            v-model="facebook"
+            prepend-icon="mdi-account"
+            type="text"
+          ></v-text-field>
+          <v-text-field
+            label="facebook"
+            v-model="facebook"
+            prepend-icon="mdi-account"
+            type="text"
+          ></v-text-field>
+          <v-text-field
+            label="social"
+            v-model="social"
+            prepend-icon="mdi-account"
+            type="text"
           ></v-text-field>
         </v-form>
       </v-col>
@@ -39,9 +61,10 @@ export default {
   data: () => ({
     discord: '',
     telegram: '',
-    twiter: '',
+    twitter: '',
     facebook: '',
     youTube: '',
+    social: ''
   }),
   methods: {
     logOut: function () {
