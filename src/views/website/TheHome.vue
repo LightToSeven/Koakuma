@@ -731,16 +731,15 @@ export default {
     }
   },
   mounted () {
-    const homeTl = gsap.timeline({
+    const aboutTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.section-about',
         start: 'top 35%',
         end: 'bottom 10%',
-        markers: true
       }
     })
 
-    homeTl.fromTo('.section-about__user img', {
+    aboutTl.fromTo('.section-about__user img', {
       autoAlpha: 0,
       x: -200
     }, {
@@ -748,6 +747,66 @@ export default {
       x: 0,
       autoAlpha: 1
     })
+    
+    const aboutListTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-about__list',
+        start: 'top 75%',
+        end: 'bottom 10%',
+        markers: true
+      }
+    })
+
+    const el1 = document.querySelector('.section-about__list .slick-slide:nth-child(1)')
+    const el2 = document.querySelector('.section-about__list .slick-slide:nth-child(2)')
+    const el3 = document.querySelector('.section-about__list .slick-slide:nth-child(3)')
+    const el4 = document.querySelector('.section-about__list .slick-slide:nth-child(4)')
+    const el5 = document.querySelector('.section-about__list .slick-slide:nth-child(5)')
+
+    aboutListTl.fromTo(el1, {
+      y: -200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    })
+    
+    aboutListTl.fromTo(el2, {
+      y: 200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
+    
+    aboutListTl.fromTo(el3, {
+      y: -200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
+    
+    aboutListTl.fromTo(el4, {
+      y: 200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
+    
+    aboutListTl.fromTo(el5, {
+      y: -200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
   },
   methods: {
     swiperNext () {
