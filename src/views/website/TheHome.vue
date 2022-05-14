@@ -336,6 +336,9 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 import { Carousel3d, Slide } from 'vue-carousel-3d'
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'TheHome',
@@ -346,23 +349,6 @@ export default {
   },
   data () {
     return {
-      settings: {
-        centerMode: true,
-        focusOnSelect: true,
-        infinite: true,
-        arrows: false,
-        slidesToShow: 5,
-        speed: 500,
-        responsive: [
-          {
-            breakpoint: 1440,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3
-            }
-          }
-        ]
-      },
       sliderAbout: {
         infinite: true,
         arrows: false,
@@ -745,7 +731,23 @@ export default {
     }
   },
   mounted () {
-    this.swiperNext()
+    const homeTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-about',
+        start: 'top 35%',
+        end: 'bottom 10%',
+        markers: true
+      }
+    })
+
+    homeTl.fromTo('.section-about__user img', {
+      autoAlpha: 0,
+      x: -200
+    }, {
+      duration: 0.55,
+      x: 0,
+      autoAlpha: 1
+    })
   },
   methods: {
     swiperNext () {
