@@ -304,6 +304,11 @@ import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger); 
+
+
 export default {
   name: 'TheHome',
   components: {
@@ -312,20 +317,26 @@ export default {
   data () {
     return {
       settings: {
-        centerMode: true,
+        // centerMode: true,
         centerPadding: 0,
-        focusOnSelect: true,
+        // focusOnSelect: true,
         infinite: true,
         arrows: false,
         slidesToShow: 5,
-        speed: 500
+        speed: 500,
+        swipe: true,
+        swipeToSlide: true,
+        touchThreshold: 10,
+        waitForAnimate: false
       },
       sliderAbout: {
         centerPadding: 0,
         infinite: true,
         arrows: false,
         slidesToShow: 5,
-        speed: 500
+        speed: 500,
+        // swipeToSlide: true,
+        // touchThreshold: 1
       },
       sliderItems: [
         {
@@ -674,6 +685,25 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    let homeTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-about',
+			  start: "top 35%",
+			  end: "bottom 10%",
+			  markers: true
+		  }
+	  });
+    
+    homeTl.fromTo('.section-about__user img', {
+      autoAlpha: 0,
+      x: -200
+    }, {
+      duration: 0.55, 
+      x: 0, 
+      autoAlpha: 1, 
+    });
   }
 }
 </script>
