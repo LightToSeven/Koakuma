@@ -113,15 +113,62 @@
     align-items: center;
     height: 100px;
   }
-  &__hero{
+  //&__hero{
+  //  position: absolute;
+  //  bottom: -36px;
+  //  left: 50%;
+  //  transform: translateX(calc(-50% + 52px));
+  //  width: max-content;
+  //  img{
+  //    width: auto;
+  //    max-height: 87.4vh;
+  //  }
+  //}
+  &__heroes{
     position: absolute;
     bottom: -36px;
     left: 50%;
     transform: translateX(calc(-50% + 52px));
-    width: max-content;
-    img{
-      width: auto;
-      max-height: 87.4vh;
+    width: 925px;
+    height: 733px;
+    .hero{
+      position: absolute;
+      &-1{
+        z-index: 7;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-63%);
+      }
+      &-2{
+        z-index: 6;
+        left: 1%;
+        bottom: 59px;
+      }
+      &-3{
+        z-index: 5;
+        right: 5px;
+        bottom: 9px;
+      }
+      &-4{
+        z-index: 4;
+        left: 48px;
+        top: 0;
+      }
+      &-5{
+        z-index: 3;
+        right: 130px;
+        bottom: -16px;
+      }
+      &-6{
+        z-index: 2;
+        left: 185px;
+        bottom: 137px;
+      }
+      &-7{
+        z-index: 1;
+        right: 57px;
+        top: 4px;
+      }
     }
   }
   &__welcome{
@@ -372,7 +419,7 @@
           opacity: 0.7;
         }
       }
-      
+
       &.left-2,
       &.right-2 {
         .carousel-3d-slide--inner {
@@ -392,7 +439,7 @@
       &--inner {
         position: relative;
         transition: all 200ms ease-out;
-        
+
         &:after {
           content: '';
           position: absolute;
@@ -474,7 +521,7 @@
       }
       &.lvl-1{
         border-color: #114EA1;
-        
+
         .subjects__image{
           background: #104DA0;
           border-color: #114EA1;

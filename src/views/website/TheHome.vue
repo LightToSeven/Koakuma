@@ -43,8 +43,17 @@
             </defs>
           </svg>
         </div>
-        <div class="section-firstScrean__hero">
-          <img src="/img/webSite/section-firstScrean-hero.png" alt="">
+<!--        <div class="section-firstScrean__hero">-->
+<!--          <img src="/img/webSite/section-firstScrean-hero.png" alt="">-->
+<!--        </div>-->
+        <div class="section-firstScrean__heroes">
+          <div class="hero hero-1"><img src="/img/webSite/firstPage/hero-1.png" alt=""></div>
+          <div class="hero hero-2"><img src="/img/webSite/firstPage/hero-2.png" alt=""></div>
+          <div class="hero hero-3"><img src="/img/webSite/firstPage/hero-3.png" alt=""></div>
+          <div class="hero hero-4"><img src="/img/webSite/firstPage/hero-4.png" alt=""></div>
+          <div class="hero hero-5"><img src="/img/webSite/firstPage/hero-5.png" alt=""></div>
+          <div class="hero hero-6"><img src="/img/webSite/firstPage/hero-6.png" alt=""></div>
+          <div class="hero hero-7"><img src="/img/webSite/firstPage/hero-7.png" alt=""></div>
         </div>
         <div class="section-firstScrean__welcome">Welcome to Koakuma</div>
         <div class="section-firstScrean__box">
