@@ -8,7 +8,7 @@
           </div>
           <div class="header__nav">
             <div class="header__menu">
-              <div class="header__menu-hover">
+              <div class="header__menu-hover" :class="`active-${menuAnimate}`">
                 <svg class="line" width="101" height="1" viewBox="0 0 101 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <line y1="0.500122" x2="101" y2="0.500122" stroke="url(#paint0_linear_2_19)"/>
                   <defs>
@@ -23,7 +23,7 @@
                   <path d="M6.75926 6.11432C6.36016 6.57993 5.63984 6.57993 5.24074 6.11432L-3.41715e-07 0.000121975L12 0.000123024L6.75926 6.11432Z" fill="#FEFFFE"/>
                 </svg>
               </div>
-              <a class="header__menu-item" v-for="(item, index) in mainMenu" :key="index" :href="item.link">
+              <a class="header__menu-item" :class="`${menuAnimate === index ? 'active' : ''}`" v-for="(item, index) in mainMenu" :key="index" :href="item.link">
                 {{ item.name }}
               </a>
             </div>
@@ -361,6 +361,7 @@ export default {
   },
   data () {
     return {
+      menuAnimate: 0,
       registerLink: {
         link: ''
       },
@@ -435,49 +436,70 @@ export default {
     }
   },
   mounted () {
+    gsap.set('.section-firstScrean__heroes .hero-1', {
+      autoAlpha: 0
+    })
+
+    gsap.set('.section-firstScrean__heroes .hero-2', {
+      autoAlpha: 0
+    })
+
+    gsap.set('.section-firstScrean__heroes .hero-3', {
+      autoAlpha: 0
+    })
+
+    gsap.set('.section-firstScrean__heroes .hero-4', {
+      autoAlpha: 0
+    })
+
+    gsap.set('.section-firstScrean__heroes .hero-5', {
+      autoAlpha: 0
+    })
+
+    gsap.set('.section-firstScrean__heroes .hero-6', {
+      autoAlpha: 0
+    })
+
+    gsap.set('.section-firstScrean__heroes .hero-7', {
+      autoAlpha: 0
+    })
+
     this.fetchData()
     setTimeout(() => {
       this.createAnimations()
-    }, 1000)
+    }, 500)
   },
   methods: {
     async fetchData () {
       const db = getDatabase()
       await onValue(ref(db, 'social'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.checkApi++
         this.social = data
       })
       await onValue(ref(db, 'registerLink'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.registerLink = data
       })
       await onValue(ref(db, 'videoSettings'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.checkApi++
         this.videoSettings = data
       })
       await onValue(ref(db, 'listInfo'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.checkApi++
         this.about = data
       })
       await onValue(ref(db, 'listGameItem'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.sliderItems = data
       })
       await onValue(ref(db, 'partnersList'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.partners = data
       })
       await onValue(ref(db, 'teamList'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.team = data
         this.team.push({
@@ -494,6 +516,45 @@ export default {
       this.$refs.aboutList.prev()
     },
     createAnimations () {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-about',
+          start: 'top 10%',
+          end: 'bottom 15%',
+          onEnter: () => { this.menuAnimate = 0 },
+          onEnterBack: () => { this.menuAnimate = 0 }
+        }
+      })
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-nfts',
+          start: 'top 10%',
+          end: 'bottom 15%',
+          onEnter: () => { this.menuAnimate = 1 },
+          onEnterBack: () => { this.menuAnimate = 1 }
+        }
+      })
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-team',
+          start: 'top 10%',
+          end: 'bottom 15%',
+          onEnter: () => { this.menuAnimate = 2 },
+          onEnterBack: () => { this.menuAnimate = 2 }
+        }
+      })
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-partners',
+          start: 'top 10%',
+          end: 'bottom 15%',
+          onEnter: () => { this.menuAnimate = 3 },
+          onEnterBack: () => { this.menuAnimate = 3 }
+        }
+      })
+
+
+
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section-firstScrean',
@@ -504,12 +565,9 @@ export default {
 
       heroTl.fromTo('.section-firstScrean__heroes .hero-1', {
         y: 100,
-        // x: -100,
         autoAlpha: 0
       }, {
-        delay: 0.35,
         y: 0,
-        // x: 0,
         autoAlpha: 1,
         duration: 1.2
       })

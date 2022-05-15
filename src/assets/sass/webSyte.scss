@@ -42,6 +42,7 @@ html{
       position: absolute;
       z-index: 1;
       background: linear-gradient(180deg, rgba(11, 34, 51, 0) 0%, #30C7D9 100%);
+      transition: all .3s ease;
       .line{
         position: absolute;
         left: 50%;
@@ -53,6 +54,18 @@ html{
         left: 50%;
         transform: translateX(-50%);
         top: calc(100% - 1px);
+      }
+      &.active-0{
+        left: 0;
+      }
+      &.active-1{
+        left: calc(1 * 106px);
+      }
+      &.active-2{
+        left: calc(2 * 106px);
+      }
+      &.active-3{
+        left: calc(3 * 106px);
       }
     }
     &-item {
@@ -68,12 +81,8 @@ html{
       transition: color .3s ease;
       padding: 7px 0 5px;
       text-align: center;
-      &:hover {
+      &:hover, &.active {
         color: #fff!important;
-      }
-      &:nth-child(2){
-        color: #fff!important;
-
       }
     }
   }
@@ -1325,6 +1334,10 @@ html{
   }
 }
 
+.y-video__media--type--img {
+  object-fit: contain;
+}
+
 @media (min-width: 1024px) and (max-width: 1199px) {
   .section-firstScrean__heroes {
     bottom: 95px;
@@ -1517,7 +1530,4 @@ html{
     }
   }
 
-  .y-video__media--type--img {
-    object-fit: contain;
-  }
 }
