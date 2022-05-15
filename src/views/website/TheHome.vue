@@ -750,6 +750,18 @@ export default {
       }
     })
 
+    heroTl.fromTo('.section-firstScrean__heroes .hero-1', {
+      y: 100,
+      // x: -100,
+      autoAlpha: 0
+    }, {
+      delay: 0.35,
+      y: 0,
+      // x: 0,
+      autoAlpha: 1,
+      duration: 1.2
+    })
+    
     heroTl.fromTo('.section-firstScrean__heroes .hero-4', {
       y: -100,
       x: -100,
@@ -760,7 +772,19 @@ export default {
       x: 0,
       autoAlpha: 1,
       duration: 0.8
-    })
+    }, '-=1.1')
+    
+    heroTl.fromTo('.section-firstScrean__heroes .hero-6', {
+      y: -100,
+      x: -100,
+      autoAlpha: 0
+    }, {
+      delay: 0.35,
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
     
     heroTl.fromTo('.section-firstScrean__heroes .hero-7', {
       y: -100,
