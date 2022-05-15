@@ -11,6 +11,8 @@ import TheAdminSetting from '../views/admin/TheSetting.vue'
 import TheAdminDashboard from '../views/admin/TheDashboard.vue'
 import TheAdminListInfo from '../views/admin/TheListInfo.vue'
 import TheAdminProducts from '../views/admin/TheProducts.vue'
+import TheAdminPartners from '../views/admin/ThePartners.vue'
+import TheAdminTeams from '../views/admin/TheTeams.vue'
 
 import ThePageNotFound from '../views/errors/ThePageNotFound.vue'
 import NotFoundRedirect from '../components/redirects/NotFoundRedirect.vue'
@@ -56,12 +58,6 @@ const routes = [
         beforeEnter: isAuthenticated
       },
       {
-        path: 'setting',
-        name: 'admin-setting',
-        component: TheAdminSetting,
-        beforeEnter: isAuthenticated
-      },
-      {
         path: 'list-info',
         name: 'admin-list-info',
         component: TheAdminListInfo,
@@ -71,6 +67,24 @@ const routes = [
         path: 'products',
         name: 'admin-products',
         component: TheAdminProducts,
+        beforeEnter: isAuthenticated
+      },
+      {
+        path: 'partners',
+        name: 'admin-partners',
+        component: TheAdminPartners,
+        beforeEnter: isAuthenticated
+      },
+      {
+        path: 'teams',
+        name: 'admin-teams',
+        component: TheAdminTeams,
+        beforeEnter: isAuthenticated
+      },
+      {
+        path: 'setting',
+        name: 'admin-setting',
+        component: TheAdminSetting,
         beforeEnter: isAuthenticated
       }
     ]

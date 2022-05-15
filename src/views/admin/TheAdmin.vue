@@ -97,6 +97,16 @@ export default {
         icon: 'mdi-store',
         text: 'Game items',
         link: '/admin/products'
+      },
+      {
+        icon: 'mdi-store',
+        text: 'Partners',
+        link: '/admin/partners'
+      },
+      {
+        icon: 'mdi-store',
+        text: 'Teams',
+        link: '/admin/teams'
       }
     ]
   }),

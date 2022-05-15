@@ -195,7 +195,7 @@
         <div class="section-team__list">
           <div class="section-team__list-item" v-for="(item, index) in team" :key="index">
             <div class="avatar">
-              <img :src="item.image" alt="">
+              <img :src="item.src" alt="">
             </div>
             <div class="name">{{item.name}}</div>
             <div class="position">{{item.position}}</div>
@@ -207,8 +207,8 @@
       <div class="container">
         <div class="section-partners__title">PARTNERS</div>
         <div class="section-partners__list">
-          <div class="section-partners__list-item" v-for="(item, index) in partners" :key="index" :href="`#${item.link}`">
-            <img :src="`/img/webSite/partners/${item.src}`" :alt="item.name">
+          <div class="section-partners__list-item" v-for="(item, index) in partners" :key="index">
+            <img :src="item.src" :alt="item.name">
           </div>
         </div>
       </div>
@@ -411,119 +411,8 @@ export default {
           link: 'partners'
         }
       ],
-      partners: [
-        {
-          name: 'name',
-          src: 'partner-avg.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-cryptofomo.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-gameficapital.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-gamestarter.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-lavender.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-mmlabs.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-oig.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-polkastarter.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-polygonstudios.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-scottybeam.png'
-        },
-        {
-          name: 'name',
-          src: 'partner-supraoracles.png'
-        }
-      ],
-      team: [
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: 'Agnes',
-          image: '/img/webSite/team/user.png',
-          position: 'CEO / Founder'
-        },
-        {
-          name: '???',
-          image: '/img/webSite/team/user-default.png',
-          position: 'Join Us'
-        }
-      ],
+      partners: [],
+      team: [],
       about: [],
       checkApi: 0
     }
@@ -559,6 +448,21 @@ export default {
         console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.sliderItems = data
+      })
+      await onValue(ref(db, 'partnersList'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.partners = data
+      })
+      await onValue(ref(db, 'teamList'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.team = data
+        this.team.push({
+          name: '???',
+          src: '/img/webSite/team/user-default.png',
+          position: 'Join Us'
+        })
       })
     },
     swiperNext () {
