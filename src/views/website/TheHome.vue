@@ -839,6 +839,7 @@ export default {
 </script>
 <style lang="scss">
 .carousel-3d-container {
+  overflow: visible!important;
   .carousel-3d-slide {
     border-radius: 12px;
     .title { font-size: 22px; }
