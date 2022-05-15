@@ -13,6 +13,8 @@ import vuetify from './plugins/vuetify'
 import Carousel3d from 'vue-carousel-3d'
 Vue.use(Carousel3d)
 
+import LazyYoutubeVideo from 'vue-lazy-youtube-video'
+Vue.component('LazyYoutubeVideo', LazyYoutubeVideo)
 Vue.config.productionTip = false
 
 if (localStorage.getItem('user_token')) {

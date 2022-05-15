@@ -11,7 +11,8 @@ export const SING_IN_WITH_FACEBOOK = 'SING_IN_WITH_FACEBOOK'
 export const SING_IN_WITH_LDAP = 'SING_IN_WITH_LDAP'
 export const CHECK_EMAIL = 'CHECK_EMAIL'
 
-export const LOGIN_USER = 'LOGIN_USER'
+export const GET_SOCIAL = 'GET_SOCIAL'
+export const SET_SOCIAL = 'SET_SOCIAL'
 // setting
 export const GET_LANGUAGE_LIST = 'GET_LANGUAGE_LIST'
 export const GET_TRANSLATIONS = 'GET_TRANSLATIONS'

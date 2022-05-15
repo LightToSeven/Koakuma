@@ -1,5 +1,4 @@
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut , updatePassword, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth'
-import firebase from 'firebase/app'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { firebaseAuth } from '../../firebase/config'
 
 import {
@@ -56,8 +55,6 @@ const mutations = {
   [REMOVE_TOKEN] (state) {
     localStorage.removeItem('user_token')
     state.isAuthenticated = false
-    localStorage.removeItem('user_role')
-    state.isRole = ''
     localStorage.removeItem('user_data')
     state.userData = []
   },

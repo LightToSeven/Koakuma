@@ -9,7 +9,7 @@ import TheLogin from '../views/signIn/TheLogin.vue'
 import TheAdmin from '../views/admin/TheAdmin.vue'
 import TheAdminSetting from '../views/admin/TheSetting.vue'
 import TheAdminDashboard from '../views/admin/TheDashboard.vue'
-import TheAdminCategory from '../views/admin/TheCategory.vue'
+import TheAdminListInfo from '../views/admin/TheListInfo.vue'
 import TheAdminProducts from '../views/admin/TheProducts.vue'
 
 import ThePageNotFound from '../views/errors/ThePageNotFound.vue'
@@ -46,10 +46,11 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: TheAdmin,
+    redirect: '/admin/dashboard',
     beforeEnter: isAuthenticated,
     children: [
       {
-        path: '/',
+        path: 'dashboard',
         name: 'admin-dashboard',
         component: TheAdminDashboard,
         beforeEnter: isAuthenticated
@@ -61,9 +62,9 @@ const routes = [
         beforeEnter: isAuthenticated
       },
       {
-        path: 'category',
-        name: 'admin-category',
-        component: TheAdminCategory,
+        path: 'list-info',
+        name: 'admin-list-info',
+        component: TheAdminListInfo,
         beforeEnter: isAuthenticated
       },
       {

@@ -82,7 +82,7 @@
             <span>Register</span>
           </div>
           <div class="section-firstScrean__social">
-            <a href="#">
+            <a :href="social.telegram" v-if="social.telegram.length">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="48" height="48" rx="4" fill="#1F95D2"/>
                 <g clip-path="url(#clip0_2_77)">
@@ -96,7 +96,7 @@
                 </defs>
               </svg>
             </a>
-            <a href="#">
+            <a :href="social.discord" v-if="social.discord.length">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="48" height="48" rx="4" fill="#1F95D2"/>
                 <g clip-path="url(#clip0_2_78)">
@@ -109,7 +109,7 @@
                 </defs>
               </svg>
             </a>
-            <a href="#">
+            <a :href="social.twitter" v-if="social.twitter.length">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="48" height="48" rx="4" fill="#1F95D2"/>
                 <g clip-path="url(#clip0_2_76)">
@@ -140,7 +140,7 @@
           Team up with friends, raid dungeons, fight deadly monsters, breed and train Koakuma imps, engage in player-vs-player battles, and get token & NFT rewards.
         </div>
         <div class="section-about__video">
-          <img src="/img/webSite/about/video.png" alt="">
+          <LazyYoutubeVideo :thumbnail="{ webp: videoSettings.placeholderUrl, jpg: videoSettings.placeholderUrl}" :src="'https://www.youtube.com/embed/'+videoSettings.videoUrl" />
         </div>
         <div class="section-about__list">
           <div class="btn-prev" @click="swiperPrev">
@@ -252,7 +252,8 @@
             </div>
           </div>
           <div class="footer__social">
-            <div class="footer__social-item"><a href="#">
+            <div class="footer__social-item">
+              <a  :href="social.discord" v-if="social.discord.length">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="35.6436" height="35.6436" rx="4" fill="#656462"/>
                 <g clip-path="url(#clip0_2_401)">
@@ -264,9 +265,11 @@
                   </clipPath>
                 </defs>
               </svg>
-            </a></div>
-            <div class="footer__social-item"><a href="#">
-              <svg class="telegram" width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            </a>
+            </div>
+            <div class="footer__social-item">
+              <a  :href="social.telegram" v-if="social.telegram.length">
+                <svg class="telegram" width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.643555" width="35.6436" height="35.6436" rx="4" fill="#656462"/>
                 <g clip-path="url(#clip0_2_406)">
                   <ellipse cx="18.0941" cy="18.1932" rx="13.7376" ry="13.7376" fill="#252525"/>
@@ -278,8 +281,10 @@
                   </clipPath>
                 </defs>
               </svg>
-            </a></div>
-            <div class="footer__social-item"><a href="#">
+              </a>
+            </div>
+            <div class="footer__social-item">
+              <a  :href="social.twitter" v-if="social.twitter.length">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.287109" width="35.6436" height="35.6436" rx="4" fill="#656462"/>
                 <g clip-path="url(#clip0_2_412)">
@@ -291,15 +296,19 @@
                   </clipPath>
                 </defs>
               </svg>
-            </a></div>
-            <div class="footer__social-item"><a href="#">
+            </a>
+            </div>
+            <div class="footer__social-item">
+              <a  :href="social.facebook" v-if="social.facebook.length">
               <svg class="facebook" width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.930664" width="35.6436" height="35.6436" rx="4" fill="#656462"/>
                 <circle cx="18.3811" cy="15.9655" r="11.5099" fill="#252525"/>
                 <path d="M30.6336 16.0398C30.6336 22.192 26.1472 27.2923 20.2905 28.2178V19.627H23.1382L23.6803 16.0727H20.2905V13.7665C20.2905 12.7937 20.7642 11.8466 22.2815 11.8466H23.8223V8.82036C23.8223 8.82036 22.4234 8.57998 21.0869 8.57998C18.2954 8.57998 16.4718 10.2821 16.4718 13.3628V16.0717H13.3689V19.626H16.4718V28.2168C10.6161 27.2902 6.12866 22.191 6.12866 16.0398C6.12866 9.23228 11.6147 3.71289 18.3811 3.71289C25.1476 3.71289 30.6336 9.23126 30.6336 16.0398Z" fill="#656462"/>
               </svg>
-            </a></div>
-            <div class="footer__social-item"><a href="#">
+            </a>
+            </div>
+            <div class="footer__social-item">
+              <a  :href="social.youTube" v-if="social.youTube.length">
               <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.574219" width="35.6436" height="35.6436" rx="4" fill="#656462"/>
                 <g clip-path="url(#clip0_2_428)">
@@ -311,9 +320,10 @@
                   </clipPath>
                 </defs>
               </svg>
-            </a></div>
+            </a>
+            </div>
             <div class="footer__social-item">
-              <a href="#">
+              <a  :href="social.social" v-if="<social className="social"></social>.length">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="0.217773" width="35.6436" height="35.6436" rx="4" fill="#656462"/>
                   <g clip-path="url(#clip0_2_436)">
@@ -339,14 +349,16 @@
   </div>
 </template>
 <script>
-
+import LazyYoutubeVideo from 'vue-lazy-youtube-video'
+import 'vue-lazy-youtube-video/dist/style.simplified.css'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 import { Carousel3d, Slide } from 'vue-carousel-3d'
-import { gsap } from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import { getDatabase, ref, onValue } from 'firebase/database'
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
@@ -354,10 +366,23 @@ export default {
   components: {
     VueSlickCarousel,
     Carousel3d,
-    Slide
+    Slide,
+    LazyYoutubeVideo
   },
   data () {
     return {
+      videoSettings: {
+        videoUrl: '',
+        placeholderUrl: ''
+      },
+      social: {
+        discord: '',
+        telegram: '',
+        twitter: '',
+        facebook: '',
+        youTube: '',
+        social: ''
+      },
       sliderAbout: {
         infinite: true,
         arrows: false,
@@ -710,33 +735,7 @@ export default {
           position: 'Join Us'
         }
       ],
-      about: [
-        {
-          name: 'Explore',
-          description: 'Explore and discover the breathtaking medieval fantasy continent of Laria filled with NFT treasures, ',
-          image: '/img/webSite/about/about-1.png'
-        },
-        {
-          name: 'Collect',
-          description: 'Laria is filled with abundant resources and materials, such as rare ores ',
-          image: '/img/webSite/about/about-2.png'
-        },
-        {
-          name: 'Battle',
-          description: 'Compete with other players in a one-on-one ladder event, or form a unique team with your friends to ',
-          image: '/img/webSite/about/about-3.png'
-        },
-        {
-          name: 'Craft',
-          description: 'Create and process medicinal materials into medicine, and turn ores into weapons and accessories. ',
-          image: '/img/webSite/about/about-4.png'
-        },
-        {
-          name: 'World',
-          description: 'Laria is a vast and fascinating continent. Encounter new people, and experiences, and travel to the unknown and mysterious realms together.',
-          image: '/img/webSite/about/about-5.png'
-        }
-      ]
+      about: []
     }
   },
   mounted () {
@@ -756,7 +755,7 @@ export default {
       x: 0,
       autoAlpha: 1
     })
-    
+
     const aboutListTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.section-about__list',
@@ -780,7 +779,7 @@ export default {
       autoAlpha: 1,
       duration: 0.6
     })
-    
+
     aboutListTl.fromTo(el2, {
       y: 200,
       autoAlpha: 0
@@ -789,7 +788,7 @@ export default {
       autoAlpha: 1,
       duration: 0.6
     }, '-=0.4')
-    
+
     aboutListTl.fromTo(el3, {
       y: -200,
       autoAlpha: 0
@@ -798,7 +797,7 @@ export default {
       autoAlpha: 1,
       duration: 0.6
     }, '-=0.4')
-    
+
     aboutListTl.fromTo(el4, {
       y: 200,
       autoAlpha: 0
@@ -807,7 +806,7 @@ export default {
       autoAlpha: 1,
       duration: 0.6
     }, '-=0.4')
-    
+
     aboutListTl.fromTo(el5, {
       y: -200,
       autoAlpha: 0
@@ -816,8 +815,27 @@ export default {
       autoAlpha: 1,
       duration: 0.6
     }, '-=0.4')
+    this.fetchData()
   },
   methods: {
+    async fetchData () {
+      const db = getDatabase()
+      await onValue(ref(db, 'social'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.social = data
+      })
+      await onValue(ref(db, 'videoSettings'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.videoSettings = data
+      })
+      await onValue(ref(db, 'listInfo'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.about = data
+      })
+    },
     swiperNext () {
       this.$refs.aboutList.next()
     },

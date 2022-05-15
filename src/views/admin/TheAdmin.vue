@@ -85,8 +85,13 @@ export default {
     items: [
       {
         icon: 'mdi-store',
-        text: 'Social',
-        link: '/admin'
+        text: 'Social / Video',
+        link: '/admin/dashboard'
+      },
+      {
+        icon: 'mdi-store',
+        text: 'List info',
+        link: '/admin/list-info'
       }
     ]
   }),
