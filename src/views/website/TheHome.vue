@@ -182,7 +182,7 @@
         </div>
         <div class="section-nfts__testSlider">
           <div class="section-nfts__inner" v-if="sliderItems.length">
-            <carousel-3d :perspective="0" :space="400" :display="5" :height="403">
+            <carousel-3d :controls-visible="true" :controls-prev-html="'&#10092; '" :controls-next-html="'&#10093;'" :perspective="0" :space="settingSliderNfts.space" :display="settingSliderNfts.display" :height="settingSliderNfts.height">
               <slide  v-for="(item, index) in sliderItems" :index="index">
                 <div class="carousel-3d-slide--inner" :class="`lvl-${item.rarity}`">
                   <div class="subjects" :class="`lvl-${item.rarity}`">
@@ -361,6 +361,11 @@ export default {
   },
   data () {
     return {
+      settingSliderNfts: {
+        space: 400,
+        display: 5,
+        height: 403
+      },
       menuAnimate: 0,
       registerLink: {
         link: ''
@@ -436,6 +441,14 @@ export default {
     }
   },
   mounted () {
+    if (window.innerWidth < 767) {
+      this.settingSliderNfts = {
+        space: 205,
+        display: 3,
+        height: 210
+      }
+    }
+
     gsap.set('.section-firstScrean__heroes .hero-1', {
       autoAlpha: 0
     })
@@ -749,6 +762,11 @@ export default {
 }
 </script>
 <style lang="scss">
+.slider {
+  @media screen and (max-width: 769px) {
+    height: 220px;
+  }
+}
 .carousel-3d-container {
   overflow: visible!important;
   .carousel-3d-slide {
