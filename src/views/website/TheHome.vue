@@ -909,7 +909,6 @@ export default {
       scrollTrigger:{
         trigger: '.section-nfts',
         start: 'top 100%',
-        markers: true
       }
     })
   },
