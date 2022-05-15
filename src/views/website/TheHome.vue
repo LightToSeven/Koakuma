@@ -485,7 +485,7 @@ export default {
         // x: -100,
         autoAlpha: 0
       }, {
-        delay: 0.35,
+        // delay: 0.35,
         y: 0,
         // x: 0,
         autoAlpha: 1,

@@ -1323,6 +1323,10 @@ html{
   }
 }
 
+.y-video__media--type--img {
+  object-fit: contain;
+}
+
 @media (min-width: 1024px) and (max-width: 1199px) {
   .section-firstScrean__heroes {
     bottom: 95px;
@@ -1515,7 +1519,4 @@ html{
     }
   }
 
-  .y-video__media--type--img {
-    object-fit: contain;
-  }
 }
