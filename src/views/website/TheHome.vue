@@ -406,12 +406,6 @@ export default {
             settings: {
               slidesToShow: 3
             }
-          },
-          {
-            breakpoint: 450,
-            settings: {
-              slidesToShow: 2
-            }
           }
         ]
       },
