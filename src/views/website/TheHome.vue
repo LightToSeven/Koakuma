@@ -217,7 +217,7 @@
       <div class="container">
         <div class="footer__content">
           <div class="footer__logo">
-            <img src="/img/webSite/footer-logo.svg" alt="">
+            <a href="/"><img src="/img/webSite/footer-logo.svg" alt=""></a>
           </div>
           <div class="footer__menu">
             <div class="footer__menu-item">
