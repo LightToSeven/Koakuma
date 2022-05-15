@@ -1510,4 +1510,8 @@
       right: 260px;
     }
   }
+
+  .y-video__media--type--img {
+    object-fit: contain;
+  }
 }

@@ -335,7 +335,7 @@ import { Carousel3d, Slide } from 'vue-carousel-3d'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import { getDatabase, ref, onValue } from 'firebase/database'
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   name: 'TheHome',
@@ -422,6 +422,199 @@ export default {
     setTimeout(() => {
       this.createAnimations()
     }, 1000)
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-firstScrean',
+        start: 'top 15%',
+        end: 'bottom 10%'
+      }
+    })
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-1', {
+      y: 100,
+      // x: -100,
+      autoAlpha: 0
+    }, {
+      delay: 0.35,
+      y: 0,
+      // x: 0,
+      autoAlpha: 1,
+      duration: 1.2
+    })
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-4', {
+      y: -100,
+      x: -100,
+      autoAlpha: 0
+    }, {
+      delay: 0.35,
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=1.1')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-6', {
+      y: -100,
+      x: -100,
+      autoAlpha: 0
+    }, {
+      delay: 0.35,
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-7', {
+      y: -100,
+      x: 100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-2', {
+      y: 100,
+      x: -100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-5', {
+      y: 100,
+      x: 100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-3', {
+      y: 130,
+      x: 100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    const aboutTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-about',
+        start: 'top 35%',
+        end: 'bottom 10%'
+      }
+    })
+
+    aboutTl.fromTo('.section-about__user img', {
+      autoAlpha: 0,
+      x: -200
+    }, {
+      duration: 0.55,
+      x: 0,
+      autoAlpha: 1
+    })
+
+    const aboutListTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-about__list',
+        start: 'top 75%',
+        end: 'bottom 10%'
+      }
+    })
+
+    const el1 = document.querySelector('.section-about__list .slick-slide:nth-child(1)')
+    const el2 = document.querySelector('.section-about__list .slick-slide:nth-child(2)')
+    const el3 = document.querySelector('.section-about__list .slick-slide:nth-child(3)')
+    const el4 = document.querySelector('.section-about__list .slick-slide:nth-child(4)')
+    const el5 = document.querySelector('.section-about__list .slick-slide:nth-child(5)')
+
+    aboutListTl.fromTo(el1, {
+      y: -200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    })
+
+    aboutListTl.fromTo(el2, {
+      y: 200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
+
+    aboutListTl.fromTo(el3, {
+      y: -200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
+
+    aboutListTl.fromTo(el4, {
+      y: 200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
+
+    aboutListTl.fromTo(el5, {
+      y: -200,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.6
+    }, '-=0.4')
+
+    const nftTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-nfts',
+        start: 'top 45%'
+      }
+    })
+
+    nftTl.fromTo('.section-nfts__image img', {
+      autoAlpha: 0,
+      x: 250
+    }, {
+      duration: 0.65,
+      x: 0,
+      autoAlpha: 1
+    })
+
+    nftTl.fromTo('.section-nfts__testSlider', {
+      autoAlpha: 0,
+      y: -150
+    }, {
+      y: 0,
+      delay: 1,
+      duration: 0.35,
+      autoAlpha: 1,
+      scrollTrigger: {
+        trigger: '.section-nfts',
+        start: 'top 100%'
+      }
+    })
   },
   methods: {
     async fetchData () {
@@ -476,7 +669,7 @@ export default {
         scrollTrigger: {
           trigger: '.section-firstScrean',
           start: 'top 15%',
-          end: 'bottom 10%',
+          end: 'bottom 10%'
         }
       })
 
@@ -540,7 +733,7 @@ export default {
         scrollTrigger: {
           trigger: '.section-about',
           start: 'top 35%',
-          end: 'bottom 10%',
+          end: 'bottom 10%'
         }
       })
 
@@ -557,7 +750,7 @@ export default {
         scrollTrigger: {
           trigger: '.section-about__list',
           start: 'top 75%',
-          end: 'bottom 10%',
+          end: 'bottom 10%'
         }
       })
 
@@ -614,7 +807,7 @@ export default {
       const nftTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section-nfts',
-          start: 'top 45%',
+          start: 'top 45%'
         }
       })
 
@@ -624,7 +817,7 @@ export default {
       }, {
         duration: 0.65,
         x: 0,
-        autoAlpha: 1,
+        autoAlpha: 1
       })
 
       nftTl.fromTo('.section-nfts__testSlider', {
@@ -635,9 +828,9 @@ export default {
         delay: 1,
         duration: 0.35,
         autoAlpha: 1,
-        scrollTrigger:{
+        scrollTrigger: {
           trigger: '.section-nfts',
-          start: 'top 100%',
+          start: 'top 100%'
         }
       })
     }
@@ -646,9 +839,9 @@ export default {
 </script>
 <style lang="scss">
 .carousel-3d-container {
-.carousel-3d-slide {
-border-radius: 12px;
-.title { font-size: 22px; }
-}
+  .carousel-3d-slide {
+    border-radius: 12px;
+    .title { font-size: 22px; }
+  }
 }
 </style>
