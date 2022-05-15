@@ -553,8 +553,6 @@ export default {
         }
       })
 
-
-
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section-firstScrean',
@@ -745,6 +743,7 @@ export default {
           start: 'top 100%'
         }
       })
+
     }
   }
 }

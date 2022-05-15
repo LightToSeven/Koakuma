@@ -1319,19 +1319,47 @@ html{
   .section-partners__list-item{
     width: 50%;
   }
-
-  .footer__menu{
-    flex-direction: column;
-    align-items: flex-end;
-    padding-top: 10px;
-    &-item{
-      padding: 0;
-      margin-bottom: 5px;
-      &:last-child{
-        margin-bottom: 0;
+  .footer{
+    .container{
+      padding: 0!important;
+    }
+    &__content{
+      flex-wrap: nowrap;
+      padding: 10px 15px;
+    }
+    &__logo{
+      width: 35px;
+    }
+    &__menu{
+      width: auto;
+      &-item{
+        padding: 0 5px;
+        a{
+          font-size: 12px;
+          font-weight: bold;
+        }
       }
     }
+    &__social{
+      width: auto;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      &-item{
+        margin: 0 2px ;
+        svg{
+          width: 19px;
+          height: auto;
+        }
+      }
+    }
+    &__copyright{
+      padding: 10px 15px;
+      font-size: 12px;
+      text-align: left;
+    }
   }
+
 }
 
 .y-video__media--type--img {

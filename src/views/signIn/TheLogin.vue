@@ -48,8 +48,8 @@ export default {
   mixins: [validationMixin],
   data () {
     return {
-      email: 'karasukoakuma@gmail.com',
-      password: 'Koakuma2022'
+      email: '',
+      password: ''
     }
   },
   validations () {
