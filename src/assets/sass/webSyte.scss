@@ -116,17 +116,6 @@ html{
     align-items: center;
     height: 100px;
   }
-  //&__hero{
-  //  position: absolute;
-  //  bottom: -36px;
-  //  left: 50%;
-  //  transform: translateX(calc(-50% + 52px));
-  //  width: max-content;
-  //  img{
-  //    width: auto;
-  //    max-height: 87.4vh;
-  //  }
-  //}
   &__heroes{
     position: absolute;
     bottom: -36px;
@@ -200,6 +189,7 @@ html{
   &__btn{
     position: relative;
     width: max-content;
+    display: block;
     span{
       position: absolute;
       z-index: 2;

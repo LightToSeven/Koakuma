@@ -8,6 +8,19 @@
     >
       <v-col cols="12" sm="5" md="5">
         <v-form>
+          <h2>Btn Register</h2>
+          <v-text-field
+            label="Url"
+            v-model="registerLink.link"
+            prepend-icon="mdi-discord"
+            type="text"
+          ></v-text-field>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" @click="onSubmitRegisterLink">Save</v-btn>
+          </v-card-actions>
+          <br>
+          <br>
           <h2>Social Setting</h2>
           <v-text-field
             label="discord"
@@ -94,6 +107,9 @@ export default {
     LazyYoutubeVideo
   },
   data: () => ({
+    registerLink: {
+      link: ''
+    },
     videoSettings: {
       videoUrl: '',
       placeholderUrl: ''
@@ -111,6 +127,17 @@ export default {
     this.fetchData()
   },
   methods: {
+    async onSubmitRegisterLink () {
+      const db = getDatabase()
+      await set(ref(db, 'registerLink'), this.registerLink)
+        .then(() => {
+          this.$toasted.success('Register link updated!').goAway(5000)
+        })
+        .catch(err => {
+          this.$toasted.error(err.message).goAway(5000)
+          console.log(err)
+        })
+    },
     async onSubmitSocial () {
       const db = getDatabase()
       await set(ref(db, 'social'), this.social)
@@ -144,6 +171,11 @@ export default {
         console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.videoSettings = data
+      })
+      await onValue(ref(db, 'registerLink'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.registerLink = data
       })
     }
   }

@@ -54,7 +54,7 @@
         </div>
         <div class="section-firstScrean__welcome">Welcome to Koakuma</div>
         <div class="section-firstScrean__box">
-          <div class="section-firstScrean__btn">
+          <a :href="registerLink.link" class="section-firstScrean__btn">
             <svg width="260" height="59" viewBox="0 0 260 59" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19.2778 7.59326H240.321L260 29.9661L240.321 52.339H19.2778L0 29.9661L19.2778 7.59326Z" fill="#B8611B"/>
               <path d="M37.7099 2H221.298L245.611 29.5L221.298 57H37.7099L13.8931 29.5L37.7099 2Z" fill="url(#paint0_linear_819_110)"/>
@@ -77,7 +77,7 @@
               </defs>
             </svg>
             <span>Register</span>
-          </div>
+          </a>
           <div class="section-firstScrean__social">
             <a :href="social.telegram" v-if="social.telegram.length">
               <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -347,6 +347,9 @@ export default {
   },
   data () {
     return {
+      registerLink: {
+        link: ''
+      },
       videoSettings: {
         videoUrl: '',
         placeholderUrl: ''
@@ -431,6 +434,11 @@ export default {
         const data = snapshot.val()
         this.checkApi++
         this.social = data
+      })
+      await onValue(ref(db, 'registerLink'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.registerLink = data
       })
       await onValue(ref(db, 'videoSettings'), (snapshot) => {
         console.log('snapshot', snapshot.val())
