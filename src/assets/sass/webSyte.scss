@@ -42,6 +42,18 @@ html{
       position: absolute;
       z-index: 1;
       background: linear-gradient(180deg, rgba(11, 34, 51, 0) 0%, #30C7D9 100%);
+      .line{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100% - 1px);
+      }
+      .arrow{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100% - 1px);
+      }
     }
     &-item {
       width: 106px;

@@ -8,7 +8,21 @@
           </div>
           <div class="header__nav">
             <div class="header__menu">
-              <div class="header__menu-hover"></div>
+              <div class="header__menu-hover">
+                <svg class="line" width="101" height="1" viewBox="0 0 101 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line y1="0.500122" x2="101" y2="0.500122" stroke="url(#paint0_linear_2_19)"/>
+                  <defs>
+                    <linearGradient id="paint0_linear_2_19" x1="102" y1="1.00012" x2="0" y2="1.00012" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#2BB3C5" stop-opacity="0.7"/>
+                      <stop offset="0.491152" stop-color="#FEFFFE"/>
+                      <stop offset="1" stop-color="#2FBFD2" stop-opacity="0.7"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <svg class="arrow" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.75926 6.11432C6.36016 6.57993 5.63984 6.57993 5.24074 6.11432L-3.41715e-07 0.000121975L12 0.000123024L6.75926 6.11432Z" fill="#FEFFFE"/>
+                </svg>
+              </div>
               <a class="header__menu-item" v-for="(item, index) in mainMenu" :key="index" :href="item.link">
                 {{ item.name }}
               </a>
