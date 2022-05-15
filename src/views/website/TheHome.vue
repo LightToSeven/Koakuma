@@ -9,7 +9,7 @@
           <div class="header__nav">
             <div class="header__menu">
               <div class="header__menu-hover"></div>
-              <a class="header__menu-item" v-for="(item, index) in mainMenu" :key="index" :href="`#${item.link}`">
+              <a class="header__menu-item" v-for="(item, index) in mainMenu" :key="index" :href="item.link">
                 {{ item.name }}
               </a>
             </div>
@@ -157,7 +157,7 @@
         </div>
       </div>
     </div>
-    <div class="section-nfts" ref="nft">
+    <div class="section-nfts" id="nfts" ref="nft">
       <div class="container">
         <div class="section-nfts__title">NFTs</div>
         <div class="section-nfts__image">
@@ -189,7 +189,7 @@
         </div>
       </div>
     </div>
-    <div class="section-team" ref="team">
+    <div class="section-team" id="team" ref="team">
       <div class="container">
         <div class="section-team__title">Team</div>
         <div class="section-team__list">
@@ -203,7 +203,7 @@
         </div>
       </div>
     </div>
-    <div class="section-partners" ref="partners">
+    <div class="section-partners" id="partners" ref="partners">
       <div class="container">
         <div class="section-partners__title">PARTNERS</div>
         <div class="section-partners__list">
@@ -396,19 +396,19 @@ export default {
       mainMenu: [
         {
           name: 'ABOUT',
-          link: 'about'
+          link: '#about'
         },
         {
           name: 'NFTs',
-          link: 'nft'
+          link: '#nfts'
         },
         {
           name: 'TEAM',
-          link: 'team'
+          link: '#team'
         },
         {
           name: 'PARTNERS',
-          link: 'partners'
+          link: '#partners'
         }
       ],
       partners: [],
