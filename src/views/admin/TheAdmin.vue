@@ -92,6 +92,11 @@ export default {
         icon: 'mdi-store',
         text: 'List info',
         link: '/admin/list-info'
+      },
+      {
+        icon: 'mdi-store',
+        text: 'Game items',
+        link: '/admin/products'
       }
     ]
   }),

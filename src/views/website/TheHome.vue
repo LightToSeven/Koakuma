@@ -43,9 +43,6 @@
             </defs>
           </svg>
         </div>
-<!--        <div class="section-firstScrean__hero">-->
-<!--          <img src="/img/webSite/section-firstScrean-hero.png" alt="">-->
-<!--        </div>-->
         <div class="section-firstScrean__heroes">
           <div class="hero hero-1"><img src="/img/webSite/firstPage/hero-1.png" alt=""></div>
           <div class="hero hero-2"><img src="/img/webSite/firstPage/hero-2.png" alt=""></div>
@@ -149,7 +146,7 @@
           <div class="btn-next" @click="swiperNext">
             <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1044" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1048" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1049Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1050Out" in="FeOffset1049Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
           </div>
-          <VueSlickCarousel ref="aboutList" v-bind="sliderAbout">
+          <VueSlickCarousel ref="aboutList" v-bind="sliderAbout" v-if="about.length">
             <div v-for="(item, index) in about" :key="index">
               <div class="section-about__list-item" :style="`background-image: url(${item.image})`">
                 <div class="name">{{item.name}}</div>
@@ -170,11 +167,11 @@
           Discover and collect over 720+ unique equipments, runes, legendary hero skins and weapons to help battle deadly monsters and get the upper hand against other players. Breed and train your Koakuma imps to upgrade their abilities and value.
         </div>
         <div class="section-nfts__testSlider">
-          <div class="section-nfts__inner">
+          <div class="section-nfts__inner" v-if="sliderItems.length">
             <carousel-3d :perspective="0" :space="400" :display="5" :height="403">
               <slide  v-for="(item, index) in sliderItems" :index="index">
-                <div class="carousel-3d-slide--inner" :class="`lvl-${item.lvl}`">
-                  <div class="subjects" :class="`lvl-${item.lvl}`">
+                <div class="carousel-3d-slide--inner" :class="`lvl-${item.rarity}`">
+                  <div class="subjects" :class="`lvl-${item.rarity}`">
                     <div class="subjects__image">
                       <img :src="item.image" alt="">
                     </div>
@@ -182,7 +179,7 @@
                       {{item.name}}
                     </div>
                     <div class="subjects__desc">
-                      {{item.desc}}
+                      {{item.description}}
                     </div>
                   </div>
                 </div>
@@ -190,29 +187,6 @@
             </carousel-3d>
           </div>
         </div>
-<!--        <div class="section-nfts__slider">-->
-<!--          <div class="btn-prev" @click="swiperPrevNft">-->
-<!--            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1018" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1022" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1023Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1024Out" in="FeOffset1023Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1022)"><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1018&quot;)"></path><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M36.00583,55.65273v0l-17.83921,-25.32209v0l17.83921,-25.3233v0h-12.58629v0l-17.84104,25.3233v0l17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>-->
-<!--          </div>-->
-<!--          <div class="btn-next" @click="swiperNextNft">-->
-<!--            <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1044" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1048" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1049Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1050Out" in="FeOffset1049Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>-->
-<!--          </div>-->
-<!--          <VueSlickCarousel ref="nftsList" v-bind="settings">-->
-<!--            <div class="section-nfts__slider-item" :class="`lvl-${item.lvl}`" v-for="(item, index) in sliderItems" :key="index">-->
-<!--              <div class="subjects" :class="`lvl-${item.lvl}`">-->
-<!--                <div class="subjects__image">-->
-<!--                  <img :src="item.image" alt="">-->
-<!--                </div>-->
-<!--                <div class="subjects__name">-->
-<!--                  {{item.name}}-->
-<!--                </div>-->
-<!--                <div class="subjects__desc">-->
-<!--                  {{item.desc}}-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </VueSlickCarousel>-->
-<!--        </div>-->
       </div>
     </div>
     <div class="section-team" ref="team">
@@ -418,194 +392,7 @@ export default {
           }
         ]
       },
-      sliderItems: [
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 3,
-          image: '/img/webSite/about/sliderItems-1.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 1,
-          image: '/img/webSite/about/sliderItems-2.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-3.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-4.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 2,
-          image: '/img/webSite/about/sliderItems-5.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 3,
-          image: '/img/webSite/about/sliderItems-1.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 1,
-          image: '/img/webSite/about/sliderItems-2.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-3.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-4.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 2,
-          image: '/img/webSite/about/sliderItems-5.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 3,
-          image: '/img/webSite/about/sliderItems-1.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 1,
-          image: '/img/webSite/about/sliderItems-2.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-3.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-4.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 2,
-          image: '/img/webSite/about/sliderItems-5.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 3,
-          image: '/img/webSite/about/sliderItems-1.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 1,
-          image: '/img/webSite/about/sliderItems-2.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-3.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-4.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 2,
-          image: '/img/webSite/about/sliderItems-5.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 3,
-          image: '/img/webSite/about/sliderItems-1.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 1,
-          image: '/img/webSite/about/sliderItems-2.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-3.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-4.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 2,
-          image: '/img/webSite/about/sliderItems-5.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 3,
-          image: '/img/webSite/about/sliderItems-1.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 1,
-          image: '/img/webSite/about/sliderItems-2.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-3.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 4,
-          image: '/img/webSite/about/sliderItems-4.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 2,
-          image: '/img/webSite/about/sliderItems-5.png'
-        },
-        {
-          name: 'Equipment Name',
-          desc: 'Equipment Name',
-          lvl: 3,
-          image: '/img/webSite/about/sliderItems-1.png'
-        }
-      ],
+      sliderItems: [],
       mainMenu: [
         {
           name: 'ABOUT',
@@ -737,179 +524,15 @@ export default {
           position: 'Join Us'
         }
       ],
-      about: []
+      about: [],
+      checkApi: 0
     }
   },
   mounted () {
-    const heroTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.section-firstScrean',
-        start: 'top 15%',
-        end: 'bottom 10%',
-      }
-    })
-
-    heroTl.fromTo('.section-firstScrean__heroes .hero-4', {
-      y: -100,
-      x: -100,
-      autoAlpha: 0
-    }, {
-      delay: 0.35,
-      y: 0,
-      x: 0,
-      autoAlpha: 1,
-      duration: 0.8
-    })
-
-    heroTl.fromTo('.section-firstScrean__heroes .hero-7', {
-      y: -100,
-      x: 100,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      x: 0,
-      autoAlpha: 1,
-      duration: 0.8
-    }, '-=0.6')
-
-    heroTl.fromTo('.section-firstScrean__heroes .hero-2', {
-      y: 100,
-      x: -100,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      x: 0,
-      autoAlpha: 1,
-      duration: 0.8
-    }, '-=0.6')
-
-    heroTl.fromTo('.section-firstScrean__heroes .hero-5', {
-      y: 100,
-      x: 100,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      x: 0,
-      autoAlpha: 1,
-      duration: 0.8
-    }, '-=0.6')
-
-    heroTl.fromTo('.section-firstScrean__heroes .hero-3', {
-      y: 130,
-      x: 100,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      x: 0,
-      autoAlpha: 1,
-      duration: 0.8
-    }, '-=0.6')
-
-    const aboutTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.section-about',
-        start: 'top 35%',
-        end: 'bottom 10%',
-      }
-    })
-
-    aboutTl.fromTo('.section-about__user img', {
-      autoAlpha: 0,
-      x: -200
-    }, {
-      duration: 0.55,
-      x: 0,
-      autoAlpha: 1
-    })
-
-    const aboutListTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.section-about__list',
-        start: 'top 75%',
-        end: 'bottom 10%',
-      }
-    })
-
-    const el1 = document.querySelector('.section-about__list .slick-slide:nth-child(1)')
-    const el2 = document.querySelector('.section-about__list .slick-slide:nth-child(2)')
-    const el3 = document.querySelector('.section-about__list .slick-slide:nth-child(3)')
-    const el4 = document.querySelector('.section-about__list .slick-slide:nth-child(4)')
-    const el5 = document.querySelector('.section-about__list .slick-slide:nth-child(5)')
-
-    aboutListTl.fromTo(el1, {
-      y: -200,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.6
-    })
-
-    aboutListTl.fromTo(el2, {
-      y: 200,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.6
-    }, '-=0.4')
-
-    aboutListTl.fromTo(el3, {
-      y: -200,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.6
-    }, '-=0.4')
-
-    aboutListTl.fromTo(el4, {
-      y: 200,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.6
-    }, '-=0.4')
-
-    aboutListTl.fromTo(el5, {
-      y: -200,
-      autoAlpha: 0
-    }, {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.6
-    }, '-=0.4')
     this.fetchData()
-    const nftTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.section-nfts',
-        start: 'top 45%',
-      }
-    })
-
-    nftTl.fromTo('.section-nfts__image img', {
-      autoAlpha: 0,
-      x: 250
-    }, {
-      duration: 0.65,
-      x: 0,
-      autoAlpha: 1,
-    })
-
-    nftTl.fromTo('.section-nfts__testSlider', {
-      autoAlpha: 0,
-      y: -150
-    }, {
-      y: 0,
-      delay: 1,
-      duration: 0.35,
-      autoAlpha: 1,
-      scrollTrigger:{
-        trigger: '.section-nfts',
-        start: 'top 100%',
-      }
-    })
+    setTimeout(() => {
+      this.createAnimations()
+    }, 1000)
   },
   methods: {
     async fetchData () {
@@ -917,17 +540,25 @@ export default {
       await onValue(ref(db, 'social'), (snapshot) => {
         console.log('snapshot', snapshot.val())
         const data = snapshot.val()
+        this.checkApi++
         this.social = data
       })
       await onValue(ref(db, 'videoSettings'), (snapshot) => {
         console.log('snapshot', snapshot.val())
         const data = snapshot.val()
+        this.checkApi++
         this.videoSettings = data
       })
       await onValue(ref(db, 'listInfo'), (snapshot) => {
         console.log('snapshot', snapshot.val())
         const data = snapshot.val()
+        this.checkApi++
         this.about = data
+      })
+      await onValue(ref(db, 'listGameItem'), (snapshot) => {
+        console.log('snapshot', snapshot.val())
+        const data = snapshot.val()
+        this.sliderItems = data
       })
     },
     swiperNext () {
@@ -936,12 +567,176 @@ export default {
     swiperPrev () {
       this.$refs.aboutList.prev()
     },
-    swiperNextNft () {
-      this.$refs.nftsList.next()
-    },
-    swiperPrevNft () {
-      this.$refs.nftsList.prev()
-    },
+    createAnimations () {
+      const heroTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-firstScrean',
+          start: 'top 15%',
+          end: 'bottom 10%',
+        }
+      })
+
+      heroTl.fromTo('.section-firstScrean__heroes .hero-4', {
+        y: -100,
+        x: -100,
+        autoAlpha: 0
+      }, {
+        delay: 0.35,
+        y: 0,
+        x: 0,
+        autoAlpha: 1,
+        duration: 0.8
+      })
+
+      heroTl.fromTo('.section-firstScrean__heroes .hero-7', {
+        y: -100,
+        x: 100,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        x: 0,
+        autoAlpha: 1,
+        duration: 0.8
+      }, '-=0.6')
+
+      heroTl.fromTo('.section-firstScrean__heroes .hero-2', {
+        y: 100,
+        x: -100,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        x: 0,
+        autoAlpha: 1,
+        duration: 0.8
+      }, '-=0.6')
+
+      heroTl.fromTo('.section-firstScrean__heroes .hero-5', {
+        y: 100,
+        x: 100,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        x: 0,
+        autoAlpha: 1,
+        duration: 0.8
+      }, '-=0.6')
+
+      heroTl.fromTo('.section-firstScrean__heroes .hero-3', {
+        y: 130,
+        x: 100,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        x: 0,
+        autoAlpha: 1,
+        duration: 0.8
+      }, '-=0.6')
+
+      const aboutTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-about',
+          start: 'top 35%',
+          end: 'bottom 10%',
+        }
+      })
+
+      aboutTl.fromTo('.section-about__user img', {
+        autoAlpha: 0,
+        x: -200
+      }, {
+        duration: 0.55,
+        x: 0,
+        autoAlpha: 1
+      })
+
+      const aboutListTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-about__list',
+          start: 'top 75%',
+          end: 'bottom 10%',
+        }
+      })
+
+      const el1 = document.querySelector('.section-about__list .slick-slide:nth-child(1)')
+      const el2 = document.querySelector('.section-about__list .slick-slide:nth-child(2)')
+      const el3 = document.querySelector('.section-about__list .slick-slide:nth-child(3)')
+      const el4 = document.querySelector('.section-about__list .slick-slide:nth-child(4)')
+      const el5 = document.querySelector('.section-about__list .slick-slide:nth-child(5)')
+
+      aboutListTl.fromTo(el1, {
+        y: -200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      })
+
+      aboutListTl.fromTo(el2, {
+        y: 200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+
+      aboutListTl.fromTo(el3, {
+        y: -200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+
+      aboutListTl.fromTo(el4, {
+        y: 200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+
+      aboutListTl.fromTo(el5, {
+        y: -200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+      const nftTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-nfts',
+          start: 'top 45%',
+        }
+      })
+
+      nftTl.fromTo('.section-nfts__image img', {
+        autoAlpha: 0,
+        x: 250
+      }, {
+        duration: 0.65,
+        x: 0,
+        autoAlpha: 1,
+      })
+
+      nftTl.fromTo('.section-nfts__testSlider', {
+        autoAlpha: 0,
+        y: -150
+      }, {
+        y: 0,
+        delay: 1,
+        duration: 0.35,
+        autoAlpha: 1,
+        scrollTrigger:{
+          trigger: '.section-nfts',
+          start: 'top 100%',
+        }
+      })
+    }
   }
 }
 </script>

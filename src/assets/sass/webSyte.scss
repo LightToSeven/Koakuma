@@ -1176,6 +1176,18 @@
 }
 
 @media screen and (max-width: 767px){
+  .section-nfts{
+    background-image: url(/img/webSite/bg/mobal-nfts-bg.svg);
+    background-size: cover;
+  }
+  .section-team{
+    background-image: url(/img/webSite/bg/mobal-team-bg.svg);
+    background-size: cover;
+  }
+  .section-partners{
+    background-image: url(/img/webSite/bg/mobal-partners-bg.svg);
+    background-size: cover;
+  }
   .header{
     &__menu{
       display: none;
@@ -1404,6 +1416,7 @@
 }
 
 @media (min-width: 575px) and (max-width: 767px) {
+
   .section-firstScrean__heroes {
     bottom: 95px;
     transform: translateX(calc(-50%));
