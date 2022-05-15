@@ -25,7 +25,7 @@
                   height="200px"
                 >
                 </v-img>
-                <v-btn  class="delay" color="error" @click="partnersList.splice(index, index+1);">
+                <v-btn  class="delay" color="error" @click="teamList.splice(index, index+1);">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>

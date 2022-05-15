@@ -410,7 +410,8 @@
     }
     .carousel-3d-slide {
       overflow: visible;
-
+      background: none!important;
+      border: none!important;
       &.left-1,
       &.right-1 {
         .carousel-3d-slide--inner {
