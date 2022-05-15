@@ -1199,10 +1199,6 @@ html{
     background-image: url(/img/webSite/bg/mobal-team-bg.svg);
     background-size: cover;
   }
-  .section-partners{
-    background-image: url(/img/webSite/bg/mobal-partners-bg.svg);
-    background-size: cover;
-  }
   .header{
     &__menu{
       display: none;
@@ -1212,9 +1208,9 @@ html{
     }
   }
   .section-about__title, .section-nfts__title, .section-team__title, .section-partners__title{
-    margin-left: 10px;
-    font-size: 28px;
-    line-height: 32px;
+    margin: 0 auto 40px;
+    font-size: 32px;
+    line-height: 36px;
   }
   .section-firstScrean__title svg{
     height: auto;
@@ -1266,17 +1262,26 @@ html{
     }
   }
   .section-nfts{
+    padding: 90px 0 250px;
+    &__title{
+      &:after{
+        left: -14px;
+        transform: scale(.8);
+      }
+    }
     &__box{
       position: relative;
       z-index: 2;
       margin-bottom: 200px;
       margin-left: 0;
-      width: calc(100% - 80px);
+      width: calc(100% - 100px);
+      padding: 15px 20px 20px;
+      font-size: 12px;
     }
     &__image {
-      width: 450px;
-      left: calc(100% - 120px);
-      top: 0;
+      width: 550px;
+      left: calc(100% - 150px);
+      top: -66px;
       transform: translateX(-15%);
     }
     &__slider{
@@ -1309,15 +1314,51 @@ html{
       }
     }
   }
-  .section-team__list-item{
-    width: 50%;
-    .avatar{
-      display: flex;
-      justify-content: center;
+
+  .section-team{
+    padding: 100px 0 150px;
+    margin-top: -100px;
+    &__title{
+      &:after{
+        left: -14px;
+        transform: scale(.8);
+      }
+    }
+    &__list{
+      margin: 0 -15px;
+      &-item{
+        width: 25%;
+        padding: 0 5px;
+        margin-bottom: 15px;
+        .avatar{
+          display: flex;
+          justify-content: center;
+        }
+        .name{
+          font-size: 14px ;
+          background: linear-gradient(270deg, rgba(165, 118, 234, 0) 0%, #A576EA 51.08%, rgba(165, 118, 234, 0) 100%);
+          margin-bottom: 4px;
+        }
+        .position{
+          font-size: 10px ;
+          line-height: 12px;
+        }
+      }
     }
   }
-  .section-partners__list-item{
-    width: 50%;
+  .section-partners{
+    padding-top: 100px;
+    margin-top: -100px;
+    //background-image: url(/img/webSite/bg/mobal-partners-bg.svg);
+    background-size: cover;
+    &__list{
+      margin: 0 -15px 20px;
+      &-item{
+        width: 33.3333%;
+        padding: 15px;
+        margin: 0;
+      }
+    }
   }
   .footer{
     .container{
