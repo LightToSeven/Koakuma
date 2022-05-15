@@ -418,6 +418,34 @@ export default {
     }
   },
   mounted () {
+    gsap.set('.section-firstScrean__heroes .hero-1', {
+      autoAlpha: 0
+    })
+    
+    gsap.set('.section-firstScrean__heroes .hero-2', {
+      autoAlpha: 0
+    })
+    
+    gsap.set('.section-firstScrean__heroes .hero-3', {
+      autoAlpha: 0
+    })
+    
+    gsap.set('.section-firstScrean__heroes .hero-4', {
+      autoAlpha: 0
+    })
+    
+    gsap.set('.section-firstScrean__heroes .hero-5', {
+      autoAlpha: 0
+    })
+    
+    gsap.set('.section-firstScrean__heroes .hero-6', {
+      autoAlpha: 0
+    })
+    
+    gsap.set('.section-firstScrean__heroes .hero-7', {
+      autoAlpha: 0
+    })
+
     this.fetchData()
     setTimeout(() => {
       this.createAnimations()
@@ -482,12 +510,9 @@ export default {
 
       heroTl.fromTo('.section-firstScrean__heroes .hero-1', {
         y: 100,
-        // x: -100,
         autoAlpha: 0
       }, {
-        // delay: 0.35,
         y: 0,
-        // x: 0,
         autoAlpha: 1,
         duration: 1.2
       })
