@@ -9,7 +9,7 @@
           <div class="header__nav">
             <div class="header__menu">
               <div class="header__menu-hover"></div>
-              <a class="header__menu-item"  v-for="(item, index) in mainMenu" :key="index" :href="`#${item.link}`">
+              <a class="header__menu-item" v-for="(item, index) in mainMenu" :key="index" :href="`#${item.link}`">
                 {{ item.name }}
               </a>
             </div>
@@ -126,7 +126,7 @@
         </div>
       </div>
     </div>
-    <div class="section-about" ref="asdfasdfa">
+    <div class="section-about" id="about">
       <div class="container">
         <div class="section-about__title">About</div>
         <div class="section-about__bg">
@@ -160,7 +160,7 @@
         </div>
       </div>
     </div>
-    <div class="section-nfts">
+    <div class="section-nfts" ref="nft">
       <div class="container">
         <div class="section-nfts__title">NFTs</div>
         <div class="section-nfts__image">
@@ -170,23 +170,25 @@
           Discover and collect over 720+ unique equipments, runes, legendary hero skins and weapons to help battle deadly monsters and get the upper hand against other players. Breed and train your Koakuma imps to upgrade their abilities and value.
         </div>
         <div class="section-nfts__testSlider">
-          <carousel-3d :perspective="0" :space="400" :display="5" :height="403">
-            <slide  v-for="(item, index) in sliderItems" :index="index">
-              <div class="carousel-3d-slide--inner" :class="`lvl-${item.lvl}`">
-                <div class="subjects" :class="`lvl-${item.lvl}`">
-                  <div class="subjects__image">
-                    <img :src="item.image" alt="">
-                  </div>
-                  <div class="subjects__name">
-                    {{item.name}}
-                  </div>
-                  <div class="subjects__desc">
-                    {{item.desc}}
+          <div class="section-nfts__inner">
+            <carousel-3d :perspective="0" :space="400" :display="5" :height="403">
+              <slide  v-for="(item, index) in sliderItems" :index="index">
+                <div class="carousel-3d-slide--inner" :class="`lvl-${item.lvl}`">
+                  <div class="subjects" :class="`lvl-${item.lvl}`">
+                    <div class="subjects__image">
+                      <img :src="item.image" alt="">
+                    </div>
+                    <div class="subjects__name">
+                      {{item.name}}
+                    </div>
+                    <div class="subjects__desc">
+                      {{item.desc}}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </slide>
-          </carousel-3d>
+              </slide>
+            </carousel-3d>
+          </div>
         </div>
 <!--        <div class="section-nfts__slider">-->
 <!--          <div class="btn-prev" @click="swiperPrevNft">-->
@@ -213,7 +215,7 @@
 <!--        </div>-->
       </div>
     </div>
-    <div class="section-team">
+    <div class="section-team" ref="team">
       <div class="container">
         <div class="section-team__title">Team</div>
         <div class="section-team__list">
@@ -227,7 +229,7 @@
         </div>
       </div>
     </div>
-    <div class="section-partners">
+    <div class="section-partners" ref="partners">
       <div class="container">
         <div class="section-partners__title">PARTNERS</div>
         <div class="section-partners__list">
@@ -323,7 +325,7 @@
             </a>
             </div>
             <div class="footer__social-item">
-              <a  :href="social.social" v-if="<social className="social"></social>.length">
+              <a :href="social.social" v-if="social.social.length">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="0.217773" width="35.6436" height="35.6436" rx="4" fill="#656462"/>
                   <g clip-path="url(#clip0_2_436)">
@@ -607,19 +609,19 @@ export default {
       mainMenu: [
         {
           name: 'ABOUT',
-          link: ''
+          link: 'about'
         },
         {
           name: 'NFTs',
-          link: ''
+          link: 'nft'
         },
         {
           name: 'TEAM',
-          link: ''
+          link: 'team'
         },
         {
           name: 'PARTNERS',
-          link: ''
+          link: 'partners'
         }
       ],
       partners: [
@@ -739,6 +741,70 @@ export default {
     }
   },
   mounted () {
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-firstScrean',
+        start: 'top 15%',
+        end: 'bottom 10%',
+      }
+    })
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-4', {
+      y: -100,
+      x: -100,
+      autoAlpha: 0
+    }, {
+      delay: 0.35,
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    })
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-7', {
+      y: -100,
+      x: 100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-2', {
+      y: 100,
+      x: -100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-5', {
+      y: 100,
+      x: 100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
+    heroTl.fromTo('.section-firstScrean__heroes .hero-3', {
+      y: 130,
+      x: 100,
+      autoAlpha: 0
+    }, {
+      y: 0,
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.8
+    }, '-=0.6')
+
     const aboutTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.section-about',
@@ -761,7 +827,6 @@ export default {
         trigger: '.section-about__list',
         start: 'top 75%',
         end: 'bottom 10%',
-        markers: true
       }
     })
 
@@ -816,6 +881,35 @@ export default {
       duration: 0.6
     }, '-=0.4')
     this.fetchData()
+    const nftTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.section-nfts',
+        start: 'top 45%',
+      }
+    })
+
+    nftTl.fromTo('.section-nfts__image img', {
+      autoAlpha: 0,
+      x: 250
+    }, {
+      duration: 0.65,
+      x: 0,
+      autoAlpha: 1,
+    })
+
+    nftTl.fromTo('.section-nfts__testSlider', {
+      autoAlpha: 0,
+      y: -150
+    }, {
+      y: 0,
+      delay: 1,
+      duration: 0.35,
+      autoAlpha: 1,
+      scrollTrigger:{
+        trigger: '.section-nfts',
+        start: 'top 100%',
+      }
+    })
   },
   methods: {
     async fetchData () {
@@ -847,7 +941,7 @@ export default {
     },
     swiperPrevNft () {
       this.$refs.nftsList.prev()
-    }
+    },
   }
 }
 </script>
