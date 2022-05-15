@@ -1544,8 +1544,8 @@ html{
 }
 @media screen and (max-width: 767px) and (max-height: 690px) {
   .section-firstScrean__heroes {
-    bottom: 95px;
-    transform: translateX(calc(-50%));
+    bottom: 47px;
+    transform: translateX(calc(-50%)) scale(.85);
 
     .hero-1 {
       left: -42px;
