@@ -1542,9 +1542,12 @@ html{
     }
   }
 }
-@media screen and (max-width: 767px) and (max-height: 690px) {
+@media screen and (max-width: 767px) and (max-height: 780px) {
+  .section-firstScrean__box{
+    padding-bottom: 50px;
+  }
   .section-firstScrean__heroes {
-    bottom: 47px;
+    bottom: 105px;
     transform: translateX(calc(-50%)) scale(.85);
 
     .hero-1 {
