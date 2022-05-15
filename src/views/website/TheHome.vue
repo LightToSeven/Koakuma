@@ -500,11 +500,15 @@ export default {
       this.$refs.aboutList.prev()
     },
     createAnimations () {
+      function testTimeline() {
+        console.log('function call');
+      }
+
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section-firstScrean',
           start: 'top 15%',
-          end: 'bottom 10%'
+          end: 'bottom 10%',
         }
       })
 
@@ -589,7 +593,8 @@ export default {
         scrollTrigger: {
           trigger: '.section-about',
           start: 'top 35%',
-          end: 'bottom 10%'
+          end: 'bottom 10%',
+          onEnter: () => testTimeline(),
         }
       })
 
@@ -664,7 +669,8 @@ export default {
       const nftTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section-nfts',
-          start: 'top 45%'
+          start: 'top 45%',
+          onEnter: () => testTimeline(),
         }
       })
 
@@ -688,6 +694,22 @@ export default {
         scrollTrigger: {
           trigger: '.section-nfts',
           start: 'top 100%'
+        }
+      })
+
+      const teamTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-team',
+          start: 'top 100%',
+          onEnter: () => testTimeline(),
+        }
+      })
+      
+      const partnersTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-partners',
+          start: 'top 100%',
+          onEnter: () => testTimeline(),
         }
       })
     }
