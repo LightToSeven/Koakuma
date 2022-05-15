@@ -9,7 +9,7 @@
           <div class="header__nav">
             <div class="header__menu">
               <div class="header__menu-hover"></div>
-              <a class="header__menu-item"  v-for="(item, index) in mainMenu" :key="index" :href="`#${item.link}`">
+              <a class="header__menu-item" v-for="(item, index) in mainMenu" :key="index" :href="`#${item.link}`">
                 {{ item.name }}
               </a>
             </div>
@@ -126,7 +126,7 @@
         </div>
       </div>
     </div>
-    <div class="section-about" ref="asdfasdfa">
+    <div class="section-about" id="about">
       <div class="container">
         <div class="section-about__title">About</div>
         <div class="section-about__bg">
@@ -160,7 +160,7 @@
         </div>
       </div>
     </div>
-    <div class="section-nfts">
+    <div class="section-nfts" ref="nft">
       <div class="container">
         <div class="section-nfts__title">NFTs</div>
         <div class="section-nfts__image">
@@ -215,7 +215,7 @@
 <!--        </div>-->
       </div>
     </div>
-    <div class="section-team">
+    <div class="section-team" ref="team">
       <div class="container">
         <div class="section-team__title">Team</div>
         <div class="section-team__list">
@@ -229,7 +229,7 @@
         </div>
       </div>
     </div>
-    <div class="section-partners">
+    <div class="section-partners" ref="partners">
       <div class="container">
         <div class="section-partners__title">PARTNERS</div>
         <div class="section-partners__list">
@@ -356,7 +356,7 @@ export default {
   components: {
     VueSlickCarousel,
     Carousel3d,
-    Slide
+    Slide,
   },
   data () {
     return {
@@ -584,19 +584,19 @@ export default {
       mainMenu: [
         {
           name: 'ABOUT',
-          link: ''
+          link: 'about'
         },
         {
           name: 'NFTs',
-          link: ''
+          link: 'nft'
         },
         {
           name: 'TEAM',
-          link: ''
+          link: 'team'
         },
         {
           name: 'PARTNERS',
-          link: ''
+          link: 'partners'
         }
       ],
       partners: [
@@ -910,7 +910,7 @@ export default {
         trigger: '.section-nfts',
         start: 'top 100%',
       }
-    })
+    })    
   },
   methods: {
     swiperNext () {
@@ -924,7 +924,7 @@ export default {
     },
     swiperPrevNft () {
       this.$refs.nftsList.prev()
-    }
+    },
   }
 }
 </script>
