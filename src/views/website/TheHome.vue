@@ -757,7 +757,6 @@ export default {
           start: 'top 100%'
         }
       })
-
     }
   }
 }
