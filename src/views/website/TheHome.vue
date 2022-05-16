@@ -160,7 +160,7 @@
           <div class="btn-next" @click="swiperNext">
             <svg id="SVGDoc" width="41" height="61" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 41 61"><defs><mask id="Mask1044" x="-1" y="-1" width="2" height="2"><rect width="31" height="51" x="5" y="5" fill="#ffffff"></rect><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#000000"></path></mask><filter id="Filter1048" width="61" height="81" x="-10" y="-10" filterUnits="userSpaceOnUse"><feOffset dx="0" dy="0" result="FeOffset1049Out" in="SourceGraphic"></feOffset><feGaussianBlur stdDeviation="2 2" result="FeGaussianBlur1050Out" in="FeOffset1049Out"></feGaussianBlur></filter></defs><desc>Generated with Avocode.</desc><g><g><title>btn_arrow</title><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><g filter="url(#Filter1048)"><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="none" stroke-opacity="0.58" stroke-width="0" mask="url(&quot;#Mask1044&quot;)"></path><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#ffffff" fill-opacity="0.58"></path></g><path d="M5.58772,55.65273v0l17.83929,-25.32209v0l-17.83929,-25.3233v0h12.58629v0l17.84104,25.3233v0l-17.84104,25.32209v0z" fill="#e9e9e9" fill-opacity="1"></path></g></g></svg>
           </div>
-          <VueSlickCarousel ref="aboutList" v-bind="sliderAbout" v-if="about.length">
+          <VueSlickCarousel @init="onInitCarousel" ref="aboutList" v-bind="sliderAbout" v-if="about.length">
             <div v-for="(item, index) in about" :key="index" :class="'slide-' + index">
               <div class="section-about__list-item" :style="`background-image: url(${item.image})`">
                 <div class="name">{{item.name}}</div>
@@ -477,6 +477,12 @@ export default {
     }, 1500)
   },
   methods: {
+    onInitCarousel () {
+      console.log('our carousel is ready')
+      setTimeout(() => {
+        this.animAboutSection()
+      }, 500)
+    },
     async fetchData () {
       const db = getDatabase()
       await onValue(ref(db, 'social'), (snapshot) => {
@@ -769,7 +775,6 @@ export default {
         }
       })
 
-      this.animAboutSection()
     }
   }
 }
