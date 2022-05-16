@@ -621,14 +621,8 @@ export default {
       // const el3 = document.querySelector('.section-about__list .slick-slide:nth-child(3)')
       // const el4 = document.querySelector('.section-about__list .slick-slide:nth-child(4)')
       // const el5 = document.querySelector('.section-about__list .slick-slide:nth-child(5)')
-      
-      const el1 = document.querySelector('.section-about__list .slide-0')
-      const el2 = document.querySelector('.section-about__list .slide-1')
-      const el3 = document.querySelector('.section-about__list .slide-2')
-      const el4 = document.querySelector('.section-about__list .slide-3')
-      const el5 = document.querySelector('.section-about__list .slide-4')
 
-      aboutListTl.fromTo(el1, {
+      aboutListTl.fromTo('.section-about__list .slide-0', {
         y: -200,
         autoAlpha: 0
       }, {
@@ -637,7 +631,7 @@ export default {
         duration: 0.6
       })
 
-      aboutListTl.fromTo(el2, {
+      aboutListTl.fromTo('.section-about__list .slide-1', {
         y: 200,
         autoAlpha: 0
       }, {
@@ -646,7 +640,7 @@ export default {
         duration: 0.6
       }, '-=0.4')
 
-      aboutListTl.fromTo(el3, {
+      aboutListTl.fromTo('.section-about__list .slide-2', {
         y: -200,
         autoAlpha: 0
       }, {
@@ -655,7 +649,7 @@ export default {
         duration: 0.6
       }, '-=0.4')
 
-      aboutListTl.fromTo(el4, {
+      aboutListTl.fromTo('.section-about__list .slide-3', {
         y: 200,
         autoAlpha: 0
       }, {
@@ -664,7 +658,7 @@ export default {
         duration: 0.6
       }, '-=0.4')
 
-      aboutListTl.fromTo(el5, {
+      aboutListTl.fromTo('.section-about__list .slide-4', {
         y: -200,
         autoAlpha: 0
       }, {
