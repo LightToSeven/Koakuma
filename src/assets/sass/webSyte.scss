@@ -13,7 +13,7 @@ html{
 }
 
 .header {
-  background: rgba(3, 2, 8, 0.2);
+  background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
   left: 0;
@@ -299,8 +299,16 @@ html{
     margin: 0 auto;
     max-width: 727px;
     position: relative;
-    z-index: 4;
+    z-index: 5;
     margin-bottom: 205px;
+    .y-video__button{
+      background-image: url(/img/play.svg);
+      background-size: contain;
+      background-position: center center;
+      svg{
+        display: none;
+      }
+    }
   }
   &__list{
     position: relative;
@@ -704,8 +712,12 @@ html{
 
 .footer{
   background: #252525;
+  border-top: 2px solid #3882a7;
   &__logo {
     width: 25%;
+    img{
+      width: 58px;
+    }
   }
   &__social{
     width: 25%;
@@ -719,6 +731,8 @@ html{
         cursor: pointer;
         svg{
           display: block;
+          width: 28px;
+          height: auto;
           rect, circle, path{
             transition: all .3s ease;
           }
@@ -761,7 +775,7 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 19px 12px 23px;
+    padding: 10px 12px 15px;
   }
   &__copyright{
     border-top: 1px solid #656462;
