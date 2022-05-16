@@ -611,7 +611,8 @@ export default {
         scrollTrigger: {
           trigger: '.section-about__list',
           start: 'top 75%',
-          end: 'bottom 10%'
+          end: 'bottom 10%',
+          markers: true
         }
       })
 
