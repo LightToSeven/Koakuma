@@ -474,7 +474,7 @@ export default {
     this.fetchData()
     setTimeout(() => {
       this.createAnimations()
-    }, 500)
+    }, 1500)
   },
   methods: {
     async fetchData () {
@@ -522,14 +522,79 @@ export default {
     swiperPrev () {
       this.$refs.aboutList.prev()
     },
-    createAnimations () {
+    animAboutSection () {
+      const aboutListTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.section-about__list',
+          start: 'top 75%',
+          end: 'bottom 10%',
+          markers: true
+        }
+      })
+
+      // const el1 = document.querySelector('.section-about__list .slick-slide:nth-child(1)')
+      // const el2 = document.querySelector('.section-about__list .slick-slide:nth-child(2)')
+      // const el3 = document.querySelector('.section-about__list .slick-slide:nth-child(3)')
+      // const el4 = document.querySelector('.section-about__list .slick-slide:nth-child(4)')
+      // const el5 = document.querySelector('.section-about__list .slick-slide:nth-child(5)')
+
+      aboutListTl.fromTo('.section-about__list .slide-0', {
+        y: -200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      })
+
+      aboutListTl.fromTo('.section-about__list .slide-1', {
+        y: 200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+
+      aboutListTl.fromTo('.section-about__list .slide-2', {
+        y: -200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+
+      aboutListTl.fromTo('.section-about__list .slide-3', {
+        y: 200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+
+      aboutListTl.fromTo('.section-about__list .slide-4', {
+        y: -200,
+        autoAlpha: 0
+      }, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.6
+      }, '-=0.4')
+    },
+    createAnimations: function () {
       gsap.timeline({
         scrollTrigger: {
           trigger: '.section-about',
           start: 'top 10%',
           end: 'bottom 15%',
-          onEnter: () => { this.menuAnimate = 0 },
-          onEnterBack: () => { this.menuAnimate = 0 }
+          onEnter: () => {
+            this.menuAnimate = 0
+          },
+          onEnterBack: () => {
+            this.menuAnimate = 0
+          }
         }
       })
       gsap.timeline({
@@ -537,8 +602,12 @@ export default {
           trigger: '.section-nfts',
           start: 'top 10%',
           end: 'bottom 15%',
-          onEnter: () => { this.menuAnimate = 1 },
-          onEnterBack: () => { this.menuAnimate = 1 }
+          onEnter: () => {
+            this.menuAnimate = 1
+          },
+          onEnterBack: () => {
+            this.menuAnimate = 1
+          }
         }
       })
       gsap.timeline({
@@ -546,8 +615,12 @@ export default {
           trigger: '.section-team',
           start: 'top 10%',
           end: 'bottom 15%',
-          onEnter: () => { this.menuAnimate = 2 },
-          onEnterBack: () => { this.menuAnimate = 2 }
+          onEnter: () => {
+            this.menuAnimate = 2
+          },
+          onEnterBack: () => {
+            this.menuAnimate = 2
+          }
         }
       })
       gsap.timeline({
@@ -555,8 +628,12 @@ export default {
           trigger: '.section-partners',
           start: 'top 10%',
           end: 'bottom 15%',
-          onEnter: () => { this.menuAnimate = 3 },
-          onEnterBack: () => { this.menuAnimate = 3 }
+          onEnter: () => {
+            this.menuAnimate = 3
+          },
+          onEnterBack: () => {
+            this.menuAnimate = 3
+          }
         }
       })
 
@@ -662,66 +739,6 @@ export default {
         autoAlpha: 1
       })
 
-      const aboutListTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.section-about__list',
-          start: 'top 75%',
-          end: 'bottom 10%',
-          markers: true
-        }
-      })
-
-      // const el1 = document.querySelector('.section-about__list .slick-slide:nth-child(1)')
-      // const el2 = document.querySelector('.section-about__list .slick-slide:nth-child(2)')
-      // const el3 = document.querySelector('.section-about__list .slick-slide:nth-child(3)')
-      // const el4 = document.querySelector('.section-about__list .slick-slide:nth-child(4)')
-      // const el5 = document.querySelector('.section-about__list .slick-slide:nth-child(5)')
-
-      aboutListTl.fromTo('.section-about__list .slide-0', {
-        y: -200,
-        autoAlpha: 0
-      }, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.6
-      })
-
-      aboutListTl.fromTo('.section-about__list .slide-1', {
-        y: 200,
-        autoAlpha: 0
-      }, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.6
-      }, '-=0.4')
-
-      aboutListTl.fromTo('.section-about__list .slide-2', {
-        y: -200,
-        autoAlpha: 0
-      }, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.6
-      }, '-=0.4')
-
-      aboutListTl.fromTo('.section-about__list .slide-3', {
-        y: 200,
-        autoAlpha: 0
-      }, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.6
-      }, '-=0.4')
-
-      aboutListTl.fromTo('.section-about__list .slide-4', {
-        y: -200,
-        autoAlpha: 0
-      }, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.6
-      }, '-=0.4')
-
       const nftTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section-nfts',
@@ -751,6 +768,8 @@ export default {
           start: 'top 100%'
         }
       })
+
+      this.animAboutSection()
     }
   }
 }
