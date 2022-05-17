@@ -10,10 +10,11 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 
+
 import Carousel3d from 'vue-carousel-3d'
-Vue.use(Carousel3d)
 
 import LazyYoutubeVideo from 'vue-lazy-youtube-video'
+Vue.use(Carousel3d)
 Vue.component('LazyYoutubeVideo', LazyYoutubeVideo)
 Vue.config.productionTip = false
 

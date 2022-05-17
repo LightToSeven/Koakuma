@@ -183,7 +183,7 @@
         </div>
         <div class="section-nfts__testSlider">
           <div class="section-nfts__inner" v-if="sliderItems.length">
-            <carousel-3d :controls-visible="true" :controls-prev-html="'&#10092; '" :controls-next-html="'&#10093;'" :perspective="0" :space="settingSliderNfts.space" :display="settingSliderNfts.display" :height="settingSliderNfts.height">
+            <carousel-3d :clickable="false" :controls-visible="true" :controls-prev-html="'&#10092; '" :controls-next-html="'&#10093;'" :perspective="0" :space="settingSliderNfts.space" :display="settingSliderNfts.display" :height="settingSliderNfts.height">
               <slide v-for="(item, index) in sliderItems" :index="index">
                 <div class="carousel-3d-slide--inner" :class="`lvl-${item.rarity}`">
                   <div class="subjects" :class="`lvl-${item.rarity}`">
@@ -451,27 +451,21 @@ export default {
     gsap.set('.section-firstScrean__heroes .hero-1', {
       autoAlpha: 0
     })
-
     gsap.set('.section-firstScrean__heroes .hero-2', {
       autoAlpha: 0
     })
-
     gsap.set('.section-firstScrean__heroes .hero-3', {
       autoAlpha: 0
     })
-
     gsap.set('.section-firstScrean__heroes .hero-4', {
       autoAlpha: 0
     })
-
     gsap.set('.section-firstScrean__heroes .hero-5', {
       autoAlpha: 0
     })
-
     gsap.set('.section-firstScrean__heroes .hero-6', {
       autoAlpha: 0
     })
-
     gsap.set('.section-firstScrean__heroes .hero-7', {
       autoAlpha: 0
     })
@@ -594,59 +588,60 @@ export default {
       }, '-=0.4')
     },
     createAnimations: function () {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.section-about',
-          start: 'top 10%',
-          end: 'bottom 15%',
-          onEnter: () => {
-            this.menuAnimate = 0
-          },
-          onEnterBack: () => {
-            this.menuAnimate = 0
+      setTimeout(() => {
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: '.section-about .container',
+            start: 'top 20%',
+            end: 'bottom 20%',
+            onEnter: () => {
+              this.menuAnimate = 0
+            },
+            onEnterBack: () => {
+              this.menuAnimate = 0
+            }
           }
-        }
-      })
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.section-nfts',
-          start: 'top 10%',
-          end: 'bottom 15%',
-          onEnter: () => {
-            this.menuAnimate = 1
-          },
-          onEnterBack: () => {
-            this.menuAnimate = 1
+        })
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: '.section-nfts .container',
+            start: 'top 20%',
+            end: 'bottom 20%',
+            onEnter: () => {
+              this.menuAnimate = 1
+            },
+            onEnterBack: () => {
+              this.menuAnimate = 1
+            }
           }
-        }
-      })
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.section-team',
-          start: 'top 10%',
-          end: 'bottom 15%',
-          onEnter: () => {
-            this.menuAnimate = 2
-          },
-          onEnterBack: () => {
-            this.menuAnimate = 2
+        })
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: '.section-team .container',
+            start: 'top 20%',
+            end: 'bottom 20%',
+            onEnter: () => {
+              this.menuAnimate = 2
+            },
+            onEnterBack: () => {
+              this.menuAnimate = 2
+            }
           }
-        }
-      })
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.section-partners',
-          start: 'top 10%',
-          end: 'bottom 15%',
-          onEnter: () => {
-            this.menuAnimate = 3
-          },
-          onEnterBack: () => {
-            this.menuAnimate = 3
+        })
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: '.section-partners',
+            start: 'top 20%',
+            end: 'bottom 20%',
+            onEnter: () => {
+              this.menuAnimate = 3
+            },
+            onEnterBack: () => {
+              this.menuAnimate = 3
+            }
           }
-        }
-      })
-
+        })
+      }, 1000)
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section-firstScrean',
