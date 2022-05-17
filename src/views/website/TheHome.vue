@@ -389,6 +389,7 @@ export default {
         slidesToShow: 5,
         slidesToScroll: 1,
         speed: 500,
+        swipeToSlide: true,
         responsive: [
           {
             breakpoint: 1440,
