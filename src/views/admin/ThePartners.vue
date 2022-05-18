@@ -25,7 +25,7 @@
                   height="200px"
                 >
                 </v-img>
-                <v-btn  class="delay" color="error" @click="partnersList.splice(index, index+1);">
+                <v-btn  class="delay" color="error" @click="delay(item.uuid)">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>
@@ -46,6 +46,7 @@
 </template>
 <script>
 import { getDatabase, ref, set, onValue } from 'firebase/database'
+import { uuidv4 } from '@/utils/uuid'
 
 export default {
   name: 'ThePartners',
@@ -56,6 +57,11 @@ export default {
     this.fetchData()
   },
   methods: {
+    uuidv4,
+    delay (uuid) {
+      const data = this.partnersList
+      this.partnersList = data.filter(item => uuid !== item.uuid )
+    },
     async onSubmit () {
       const db = getDatabase()
       await set(ref(db, 'partnersList'), this.partnersList)
@@ -70,14 +76,15 @@ export default {
     async fetchData () {
       const db = getDatabase()
       await onValue(ref(db, 'partnersList'), (snapshot) => {
-        console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.partnersList = data
+        console.log('this.partnersList', this.partnersList)
       })
     },
     onAdd () {
       this.partnersList.unshift({
-        src: ''
+        src: '',
+        uuid: this.uuidv4()
       })
     }
   }
