@@ -593,7 +593,7 @@ export default {
           scrollTrigger: {
             trigger: '.section-about .container',
             start: 'top 20%',
-            end: 'bottom 20%',
+            end: 'bottom 25%',
             onEnter: () => {
               this.menuAnimate = 0
             },
@@ -605,7 +605,7 @@ export default {
         gsap.timeline({
           scrollTrigger: {
             trigger: '.section-nfts .container',
-            start: 'top 20%',
+            start: 'top 35%',
             end: 'bottom 20%',
             onEnter: () => {
               this.menuAnimate = 1
