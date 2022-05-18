@@ -25,7 +25,7 @@
                   height="200px"
                 >
                 </v-img>
-                <v-btn  class="delay" color="error" @click="teamList.splice(index, index+1);">
+                <v-btn  class="delay" color="error" @click="delay(item)">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>
@@ -66,6 +66,11 @@ export default {
     this.fetchData()
   },
   methods: {
+    delay (element) {
+      console.log('element', element)
+      const data = this.teamList
+      this.teamList = data.filter(item => element.name !== item.name && element.src !== item.src)
+    },
     async onSubmit () {
       const db = getDatabase()
       await set(ref(db, 'teamList'), this.teamList)
