@@ -305,6 +305,8 @@ html{
       background-image: url(/img/play.svg);
       background-size: contain;
       background-position: center center;
+      width: 96px;
+      height: 96px;
       svg{
         display: none;
       }
@@ -1168,6 +1170,10 @@ html{
     &__video{
       margin-bottom: 25px;
       padding: 0 9px  ;
+      .y-video__button{
+        width: 54px;
+        height: 54px;
+      }
     }
     &__list{
       margin: 0 -8px;
