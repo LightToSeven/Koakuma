@@ -45,6 +45,11 @@
                   v-model="item.position"
                   type="text"
                 ></v-text-field>
+                <v-text-field
+                  label="Url"
+                  v-model="item.link"
+                  type="text"
+                ></v-text-field>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -94,7 +99,8 @@ export default {
       this.teamList.unshift({
         src: '',
         name: '',
-        position: ''
+        position: '',
+        link: ''
       })
     }
   }

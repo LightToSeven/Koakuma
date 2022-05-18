@@ -12,12 +12,31 @@
           <v-text-field
             label="Url"
             v-model="registerLink.link"
-            prepend-icon="mdi-discord"
+            prepend-icon="mdi-link"
             type="text"
           ></v-text-field>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="primary" @click="onSubmitRegisterLink">Save</v-btn>
+          </v-card-actions>
+          <br>
+          <br>
+          <h2>Footer Menu</h2>
+          <v-text-field
+            label="Contact"
+            v-model="footerMenu.contact"
+            prepend-icon="mdi-link"
+            type="text"
+          ></v-text-field>
+          <v-text-field
+            label="Litepaper"
+            v-model="footerMenu.litepaper"
+            prepend-icon="mdi-link"
+            type="text"
+          ></v-text-field>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" @click="onSubmitFooterMenu">Save</v-btn>
           </v-card-actions>
           <br>
           <br>
@@ -110,6 +129,10 @@ export default {
     registerLink: {
       link: ''
     },
+    footerMenu: {
+      contact: '',
+      litepaper: ''
+    },
     videoSettings: {
       videoUrl: '',
       placeholderUrl: ''
@@ -127,6 +150,17 @@ export default {
     this.fetchData()
   },
   methods: {
+    async onSubmitFooterMenu () {
+      const db = getDatabase()
+      await set(ref(db, 'footerMenu'), this.footerMenu)
+        .then(() => {
+          this.$toasted.success('Register link updated!').goAway(5000)
+        })
+        .catch(err => {
+          this.$toasted.error(err.message).goAway(5000)
+          console.log(err)
+        })
+    },
     async onSubmitRegisterLink () {
       const db = getDatabase()
       await set(ref(db, 'registerLink'), this.registerLink)
@@ -176,6 +210,11 @@ export default {
         console.log('snapshot', snapshot.val())
         const data = snapshot.val()
         this.registerLink = data
+      })
+      await onValue(ref(db, 'footerMenu'), (snapshot) => {
+        console.log('footerMenu', snapshot.val())
+        const data = snapshot.val()
+        this.footerMenu = data
       })
     }
   }

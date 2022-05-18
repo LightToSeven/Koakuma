@@ -208,13 +208,13 @@
       <div class="container">
         <div class="section-team__title">Team</div>
         <div class="section-team__list">
-          <div class="section-team__list-item" v-for="(item, index) in team" :key="index">
+          <a :href="item.link" class="section-team__list-item" v-for="(item, index) in team" :key="index">
             <div class="avatar">
               <img :src="item.src" alt="">
             </div>
             <div class="name">{{item.name}}</div>
             <div class="position">{{item.position}}</div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -235,11 +235,11 @@
             <a href="/"><img src="/img/webSite/footer-logo.svg" alt=""></a>
           </div>
           <div class="footer__menu">
-            <div class="footer__menu-item">
-              <a href="#">CONTACT</a>
+            <div class="footer__menu-item" v-if="footerMenu.litepaper.length">
+              <a :href="footerMenu.contact">CONTACT</a>
             </div>
-            <div class="footer__menu-item">
-              <a href="#">LITEPAPER</a>
+            <div class="footer__menu-item" v-if="footerMenu.litepaper.length">
+              <a :href="footerMenu.litepaper">LITEPAPER</a>
             </div>
           </div>
           <div class="footer__social">
@@ -370,6 +370,10 @@ export default {
       menuAnimate: 0,
       registerLink: {
         link: ''
+      },
+      footerMenu: {
+        contact: '',
+        litepaper: ''
       },
       videoSettings: {
         videoUrl: '',
@@ -519,6 +523,10 @@ export default {
           src: '/img/webSite/team/user-default.png',
           position: 'Join Us'
         })
+      })
+      await onValue(ref(db, 'footerMenu'), (snapshot) => {
+        const data = snapshot.val()
+        this.footerMenu = data
       })
     },
     swiperNext () {
