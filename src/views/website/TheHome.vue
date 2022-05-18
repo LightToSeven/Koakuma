@@ -151,7 +151,7 @@
           Koakuma is a play-to-earn MMO-ARPG with immersive combat mechanics set in a graphics-intensive metaverse built on the Polygon, releasing on PC and mobile. Discover and explore the breathtaking medieval fantasy continent of Laria.
           Team up with friends, raid dungeons, fight deadly monsters, breed and train Koakuma imps, engage in player-vs-player battles, and get token & NFT rewards.
         </div>
-        <div class="section-about__video">
+        <div class="section-about__video" :style="`opacity: ${video ? 1 : 0}`">
           <LazyYoutubeVideo :thumbnail="{ webp: videoSettings.placeholderUrl, jpg: videoSettings.placeholderUrl}" :src="'https://www.youtube.com/embed/'+videoSettings.videoUrl" />
         </div>
         <div class="section-about__list">
@@ -362,6 +362,7 @@ export default {
   },
   data () {
     return {
+      video:false,
       settingSliderNfts: {
         space: 400,
         display: 5,
@@ -501,6 +502,7 @@ export default {
         const data = snapshot.val()
         this.checkApi++
         this.videoSettings = data
+        this.video = true
       })
       await onValue(ref(db, 'listInfo'), (snapshot) => {
         const data = snapshot.val()
@@ -515,15 +517,21 @@ export default {
         const data = snapshot.val()
         this.partners = data
       })
-      await onValue(ref(db, 'teamList'), (snapshot) => {
-        const data = snapshot.val()
-        this.team = data
-        this.team.push({
-          name: '???',
-          src: '/img/webSite/team/user-default.png',
-          position: 'Join Us'
+      await onValue(ref(db, 'linkTeam'), async (snapshot) => {
+        console.log('linkTeam', snapshot.val())
+        const linkTeam = snapshot.val()
+        await onValue(ref(db, 'teamList'), (snapshot) => {
+          const data = snapshot.val()
+          this.team = data
+          this.team.push({
+            name: '???',
+            src: '/img/webSite/team/user-default.png',
+            position: 'Join Us',
+            link: linkTeam.link
+          })
         })
       })
+
       await onValue(ref(db, 'footerMenu'), (snapshot) => {
         const data = snapshot.val()
         this.footerMenu = data

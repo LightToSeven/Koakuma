@@ -21,6 +21,19 @@
           </v-card-actions>
           <br>
           <br>
+          <h2>Link Team (???)</h2>
+          <v-text-field
+            label="Url"
+            v-model="linkTeam.link"
+            prepend-icon="mdi-link"
+            type="text"
+          ></v-text-field>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" @click="onSubmitLinkTeam">Save</v-btn>
+          </v-card-actions>
+          <br>
+          <br>
           <h2>Footer Menu</h2>
           <v-text-field
             label="Contact"
@@ -126,6 +139,9 @@ export default {
     LazyYoutubeVideo
   },
   data: () => ({
+    linkTeam: {
+      link: ''
+    },
     registerLink: {
       link: ''
     },
@@ -150,11 +166,22 @@ export default {
     this.fetchData()
   },
   methods: {
+    async onSubmitLinkTeam () {
+      const db = getDatabase()
+      await set(ref(db, 'linkTeam'), this.linkTeam)
+        .then(() => {
+          this.$toasted.success('Link team updated!').goAway(5000)
+        })
+        .catch(err => {
+          this.$toasted.error(err.message).goAway(5000)
+          console.log(err)
+        })
+    },
     async onSubmitFooterMenu () {
       const db = getDatabase()
       await set(ref(db, 'footerMenu'), this.footerMenu)
         .then(() => {
-          this.$toasted.success('Register link updated!').goAway(5000)
+          this.$toasted.success('Footer link updated!').goAway(5000)
         })
         .catch(err => {
           this.$toasted.error(err.message).goAway(5000)
@@ -215,6 +242,11 @@ export default {
         console.log('footerMenu', snapshot.val())
         const data = snapshot.val()
         this.footerMenu = data
+      })
+      await onValue(ref(db, 'linkTeam'), (snapshot) => {
+        console.log('linkTeam', snapshot.val())
+        const data = snapshot.val()
+        this.linkTeam = data
       })
     }
   }

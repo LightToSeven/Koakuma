@@ -301,6 +301,7 @@ html{
     position: relative;
     z-index: 5;
     margin-bottom: 205px;
+    transition: all .3s ease;
     .y-video__button{
       background-image: url(/img/play.svg);
       background-size: contain;
